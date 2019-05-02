@@ -1,0 +1,24 @@
+.container
+  box-sizing: border-box
+  display: flex
+  flex-wrap: wrap
+  height: auto
+  justify-content: flex-start
+  margin: 0 -15px
+  overflow: hidden
+  padding: 15px 0
+
+.item
+  width: calc((100% / 12 * 3) - 3rem)
+
+@media screen and (max-width: 1280px)
+  .item
+    width: calc((100% / 12 * 4) - 3rem)
+
+@media screen and (max-width: 1024px)
+  .item
+    width: calc((100% / 12 * 6) - 3rem)
+
+@media screen and (max-width: 420px)
+  .item
+    width: calc((100% / 12 * 12) - 3rem)
