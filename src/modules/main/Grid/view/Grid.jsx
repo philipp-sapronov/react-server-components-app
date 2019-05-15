@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './grid.module.sass';
-import Contact from '../../../main/Contact';
+import Contact from './../../Contacts/Contacts/view/Contact';
 
 export default function Grid(props) {
   return (
     <div className={styles.container}>
-      <Contact />
-      <Contact />
-      <Contact />
+      {props.entities.map(contact => (
+        <Contact key={contact.ID} contact={contact} {...props} />
+      ))}
     </div>
   );
 }

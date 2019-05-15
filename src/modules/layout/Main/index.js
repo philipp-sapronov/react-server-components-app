@@ -1,7 +1,4 @@
-import React from 'react';
 import Main from './view/Main';
-// import Container from './container';
-// import WithHandlers from './HOCs/withHandlers';
+import { WithScrollbar } from '../../../HOCs/WithScrollbar/WithScrollbar';
 
-export default Main;
-// export default Container(WithHandlers(View));
+export default WithScrollbar(Main);

@@ -1,12 +1,13 @@
-const projectsRoutes = {
+const routes = {
   root: { path: '/', exact: false },
-  home: { path: '/', exact: true },
-  projects: { path: '/projects', exact: true },
-  currentProject: { path: '/projects/:project', exact: true },
-  todos: { path: '/todos', exact: true },
-  isImportantTodos: { path: '/todos/importants', exact: true },
-  currentTodos: { path: '/todos/:todo(\\d+)', exact: true },
-  searchTodos: { path: '/search', exact: true },
+  home: { path: '/home', exact: true },
+  category: { path: '/categories/:id(\\d+)', exact: true },
+  contact: { path: '/contacts/:id(\\d+)', exact: true },
+  search: { path: '/search', exact: true },
+  addContact: { path: '/contact_add/:id(\\d+)', exact: true },
+  editContact: { path: '/contact_edit/:id(\\d+)', exact: true },
+  // account: { path: '/account/:id(\\d+)', exact: true },
+  account: { path: '/account', exact: true },
 };
 
-export default projectsRoutes;
+export default routes;

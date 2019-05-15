@@ -129,6 +129,7 @@ textarea {
   border-radius: 25px;
   font-size: 1.5rem;
   outline: none;
+  cursor: pointer;
 }
 
 .btn__save, .btn__cancel {
@@ -153,8 +154,8 @@ textarea {
 }
 
 .save-controls-wrap {
-  width: 95%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 40px auto 0;
 }
 
 .save-controls-inner {

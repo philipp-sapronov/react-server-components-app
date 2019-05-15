@@ -1,4 +1,5 @@
-import { WithRoute } from './../../../hocs/WithRouter/WithRouter';
-import projectsRoutes from './../../../../routes/routes';
+import { WithRoute } from '../../../../HOCs/WithRouter/WithRouter';
+import routes from './../../../../routes/routes';
 
-export default WithRoute(projectsRoutes.root);
+const { root } = routes;
+export default WithRoute(root);

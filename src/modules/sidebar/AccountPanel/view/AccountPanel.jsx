@@ -1,21 +1,24 @@
 import React from 'react';
 import styles from './accountPanel.module.sass';
+import { Link } from 'react-router-dom';
+import avatar from './images/user.png';
 
 export default function AccountPanel(props) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
         <div className={styles.fotoWrap}>
-          {/* <img className="foto" src="../img/User.jpg" alt="Your account photo"> */}
+          <img className={styles.foto} src={avatar} alt="Avatar" />
         </div>
         <div className={styles.nameWrap}>
-          <p className={styles.name}>Genrich Schroder-Stein</p>
-          <div className={styles.menuWrap}>
-            <div className={styles.menu}> </div>
-          </div>
-          <a className={styles.logout} href="#">
+          <Link exact to={'/account'}>
+            <p className={styles.name}>User</p>
+          </Link>
+          {/* TODO: put here dotsMenu */}
+
+          <Link className={styles.logout} to="/Login">
             Log out
-          </a>
+          </Link>
         </div>
       </div>
     </div>

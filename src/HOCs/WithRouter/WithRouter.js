@@ -5,8 +5,10 @@ export const WithRoute = route => Wrapped => props => (
   <Route path={route.path} exact={route.exact} component={Wrapped} {...props} />
 );
 
-export const WithSwitch = Wrapped => props => (
+export const WithSwitch = wrapped => props => (
   <Switch>
-    <Wrapped {...props} />
+    {wrapped.map(Wrapped => (
+      <Wrapped {...props} />
+    ))}
   </Switch>
 );
