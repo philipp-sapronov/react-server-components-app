@@ -1,3 +1,3 @@
-import { getDate } from './../../core/helpers/getDate';
+import { getDate } from './../../helpers/getDate';
 
 export default { entities: { contacts: {}, lastColor: null } };

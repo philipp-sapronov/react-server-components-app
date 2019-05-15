@@ -1,8 +1,8 @@
 import { handleActions } from 'redux-actions';
 import { state, actions } from './';
 import { contactFactory } from './state';
-import domains from '../../core/constants/domains';
-import contextMenuItems from '../../core/constants/contextMenuItems';
+import domains from '../../constants/domains';
+import contextMenuItems from '../../constants/contextMenuItems';
 
 const { CONTACTS } = domains;
 const { ADD, REMOVE, EDIT } = contextMenuItems;

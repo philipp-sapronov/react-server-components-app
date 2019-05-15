@@ -1,5 +1,5 @@
 import React from 'react';
-import getElementPosition from './../../core/helpers/getElementPosition';
+import getElementPosition from './../../helpers/getElementPosition';
 
 export default function WithBoundaryRect(Wrapped) {
   return class WithBoundaryRect extends React.Component {

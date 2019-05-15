@@ -1,8 +1,8 @@
-import getItemByUrlId from '../../core/helpers/getItemByUrlId';
-import getFoundItems from '../../core/helpers/getFoundItems';
-import getItemsByCategory from '../../core/helpers/getItemsByCategory';
-import { reduceItemsByProp, sortItemsByProp } from '../../core/helpers/sortItemsByProp';
-import getDaysToBirthday from '../../core/helpers/getDaysToBirthday';
+import getItemByUrlId from '../../helpers/getItemByUrlId';
+import getFoundItems from '../../helpers/getFoundItems';
+import getItemsByCategory from '../../helpers/getItemsByCategory';
+import { reduceItemsByProp, sortItemsByProp } from '../../helpers/sortItemsByProp';
+import getDaysToBirthday from '../../helpers/getDaysToBirthday';
 function getFullName(item) {
   return `${item.name} ${item.surname}`;
 }

@@ -1,5 +1,5 @@
 import { bindActionCreators } from 'redux';
-import { dispatch } from '../../modules/root/reducers/state';
+import { dispatch } from '../modules/root/reducers/state';
 
 export default function bindActions(actions) {
   console.log(actions);

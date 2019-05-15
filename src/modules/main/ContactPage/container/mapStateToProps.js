@@ -1,5 +1,5 @@
 import { selectors as contactSelectors } from '../../../../domains/contacts';
-import domains from '../../../../core/config/domains';
+import domains from '../../../../constants/domains';
 
 const { contact } = contactSelectors;
 

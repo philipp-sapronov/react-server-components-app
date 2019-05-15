@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './header.module.sass';
-import categorySchema from '../../../../core/constants/categorySchema';
+import categorySchema from '../../../../constants/categorySchema';
 
 const { TEXT } = categorySchema;
 

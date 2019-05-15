@@ -3,8 +3,8 @@ import React, { Fragment } from 'react';
 import styles from './form.css';
 import stylesSass from './form.module.sass';
 
-import contactConstants from '../../../../core/constants/contactSchema';
-import categoryConstants from '../../../../core/constants/categorySchema';
+import contactConstants from '../../../../constants/contactSchema';
+import categoryConstants from '../../../../constants/categorySchema';
 import Avatar from './../../../common/Avatar';
 
 const {

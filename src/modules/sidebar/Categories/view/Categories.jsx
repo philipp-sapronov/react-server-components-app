@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './categories.module.sass';
 import Category from './Category';
-import constants from '../../../../core/constants/categorySchema';
+import constants from '../../../../constants/categorySchema';
 
 export default function Categories(props) {
   if (!props.entities) return null;

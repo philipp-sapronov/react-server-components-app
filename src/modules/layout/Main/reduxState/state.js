@@ -1,5 +1,5 @@
-import { hashFn } from './../../core/helpers/hashFunctions';
-import { getDate } from './../../core/helpers/getDate';
+import { hashFn } from './../../helpers/hashFunctions';
+import { getDate } from './../../helpers/getDate';
 
 const item = ['1'];
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import contactSchema from '../../../../core/constants/contactSchema';
+import contactSchema from '../../../../constants/contactSchema';
 
 const { NAME, SURNAME } = contactSchema;
 function WithHandlers(Wrapped) {

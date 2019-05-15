@@ -1,5 +1,5 @@
-import constants from '../../core/constants/contactSchema';
-// import { hashFn } from '../../core/helpers/hashFunctions';
+import constants from '../../constants/contactSchema';
+// import { hashFn } from '../../helpers/hashFunctions';
 // newContact.id = hashFn();
 
 export const contactSchema = {

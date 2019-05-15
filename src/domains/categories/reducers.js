@@ -1,15 +1,15 @@
 import { handleActions } from 'redux-actions';
 import { state, actions } from './';
 import { categoryFactory } from './state';
-import constants from '../../core/constants/contactSchema';
+import constants from '../../constants/contactSchema';
 
-import domains from '../../core/config/domains';
-import contextMenuItems from '../../core/config/contextMenuItems';
+import domains from '../../constants/domains';
+import contextMenuItems from '../../constants/contextMenuItems';
 
 const { ADD, REMOVE, EDIT } = contextMenuItems;
 const { CATEGORIES } = domains;
 
-// import { hashFn } from './../../core/helpers/hashFunctions';
+// import { hashFn } from './../../helpers/hashFunctions';
 
 function findUniqIdxByPhone({ entities }, data) {
   return entities.findIndex(item => item[constants.PHONE] === data[constants.PHONE]);

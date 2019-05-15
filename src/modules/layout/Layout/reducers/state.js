@@ -1,4 +1,4 @@
-import { TODOS_SELECTORS } from './../../../../core/constants/constants';
+import { TODOS_SELECTORS } from './../../../../constants/constants';
 
 export default {
   isSidebar: false,

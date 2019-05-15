@@ -1,4 +1,4 @@
-import getItemByUrlId from '../../core/helpers/getItemByUrlId';
+import getItemByUrlId from '../../helpers/getItemByUrlId';
 
 const getCategoriesByUrlId = getItemByUrlId('categories');
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { hashFn } from '../../../../core/helpers/hashFunctions';
+import { hashFn } from '../../../../helpers/hashFunctions';
 import { history } from '../../../root/reducers/rootReducer';
 import routes from './../../../../routes/routes';
 

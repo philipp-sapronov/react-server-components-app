@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 import styles from './contact.module.sass';
 import gridStyles from '../../../Grid/view/grid.module.sass';
-import constants from '../../../../../core/constants/contactSchema';
+import constants from '../../../../../constants/contactSchema';
 import DotsMenu from '../../../../common/DotsMenu';
 import Avatar from '../../../../common/Avatar';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 // import DotsMenu from '../DotsMenu';
-import constants from '../../../../core/constants/categorySchema';
+import constants from '../../../../constants/categorySchema';
 import styles from './category.module.sass';
 import { NavLink } from 'react-router-dom';
 

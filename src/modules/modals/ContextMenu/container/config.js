@@ -1,7 +1,7 @@
-import domains from '../../../../core/config/domains';
-import contextMenuItems from '../../../../core/constants/contextMenuItems';
+import domains from '../../../../constants/domains';
+import contextMenuItems from '../../../../constants/contextMenuItems';
 import { actions as contactsActions } from '../../../../domains/contacts';
-import bindActions from './../../../../core/helpers/bindActions';
+import bindActions from './../../../../helpers/bindActions';
 import { history } from './../../../root/reducers/rootReducer';
 
 const { REMOVE, EDIT } = contextMenuItems;

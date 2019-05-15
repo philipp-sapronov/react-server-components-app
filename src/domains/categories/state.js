@@ -1,5 +1,5 @@
-import constants from '../../core/constants/categorySchema';
-import { hashFn } from '../../core/helpers/hashFunctions';
+import constants from '../../constants/categorySchema';
+import { hashFn } from '../../helpers/hashFunctions';
 
 export const categorySchema = {
   fields: {

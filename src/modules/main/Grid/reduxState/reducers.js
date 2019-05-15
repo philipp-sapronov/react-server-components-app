@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 import { todosState, actions } from './';
-import { hashFn } from './../../core/helpers/hashFunctions';
+import { hashFn } from './../../helpers/hashFunctions';
 //todo newItem() factory
-import { getDate } from '../../core/helpers/getDate';
+import { getDate } from '../../helpers/getDate';
 ('1');
