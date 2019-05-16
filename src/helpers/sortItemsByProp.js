@@ -10,8 +10,8 @@ export function reduceItemsByProp(array, prop) {
   const sortedItems = sortItemsByProp(array, prop);
   const reducedItems = [];
 
-  sortedItems.reduce((acc, item, i, array) => {
-    const sortLetter = item.name.charAt(0);
+  sortedItems.reduce((acc, item) => {
+    const sortLetter = item[prop].charAt(0);
     if (acc.sortLetter !== sortLetter) {
       const entities = [];
       acc = { sortLetter, entities };

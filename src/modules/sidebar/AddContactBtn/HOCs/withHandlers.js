@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { hashFn } from '../../../../helpers/hashFunctions';
-import { history } from '../../../root/reducers/rootReducer';
+import { history } from '../../../root/reduxState/rootReducer';
 import routes from './../../../../routes/routes';
 
 const { addContact } = routes;
@@ -11,7 +11,7 @@ function WithHandlers(Wrapped) {
       super(props);
     }
     clickHandler = () => {
-      const generatedId = hashFn();
+      const generatedId = hashFn().toString();
       this.props.setAddingContactId({ id: generatedId });
       history.push(`/contact_add/${generatedId}`);
     };

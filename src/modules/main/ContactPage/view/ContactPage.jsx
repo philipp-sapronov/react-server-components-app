@@ -1,13 +1,20 @@
 import React from 'react';
 import styles from './contactPage.module.sass';
-import DotsMenu from '../../../common/DotsMenu';
+import { history } from './../../../root/reduxState/rootReducer';
 import Avatar from './../../../common/Avatar';
 
+const avatarStyles = {
+  avatarWrap: styles.avatarWrap,
+  avatar: styles.avatar,
+  letters: styles.letters,
+};
 export default function ContactPage(props) {
   const { entity } = props;
+
   return (
     <div key={entity.ID}>
       <div className={styles.inner}>
+        <Avatar styles={avatarStyles} contact={entity} />
         <div className={styles.fieldWrap}>
           <div className={styles.label}>Name:</div>
           <div className={styles.value}>{entity.name}</div>
@@ -44,8 +51,6 @@ export default function ContactPage(props) {
           <div className={styles.label}>Category:</div>
           <div className={styles.value}>{entity.category}</div>
         </div>
-
-        <DotsMenu targetId={props.entity.id} targetDomain={props.targetDomain} />
       </div>
     </div>
   );

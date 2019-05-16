@@ -1,5 +1,3 @@
-import { createMatchSelector } from 'connected-react-router';
-import config from '../container/config';
 const [AVATAR] = 'avatar';
 const [getColor] = [
   //projectQuerySelector

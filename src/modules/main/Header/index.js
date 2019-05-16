@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import Header from './view/Header';
 import routes from './../../../routes/routes';
@@ -15,4 +14,4 @@ for (const page in state) {
   headers.push(withRoute(Container));
 }
 
-export default WithFragment(headers);
+export default WithFragment(...headers);

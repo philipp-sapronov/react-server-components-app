@@ -1,8 +1,10 @@
 .wrap
-  position: absolute
-  top: 0
-  left: 0
-  right: 0
+  // position: absolute
+  // top: 0
+  // left: 0
+  // right: 0
+  display: flex
+  align-items: center
   background-color: #fff
   height: 76px
   padding: 0px 35px 0px 30px
@@ -11,7 +13,8 @@
   z-index: 2
 
 .title
-  float: left
+  // float: left
+  flex-grow: 1
   font-size: 2.5rem
   line-height: 76px
   font-weight: 700
@@ -24,6 +27,7 @@
 .menu
   margin-left: auto
   width: 20px
+  // float: right
   color: #777
   line-height: 76px
   font-weight: bold
@@ -34,3 +38,14 @@
   cursor: pointer
   &:after
     content: "\00B7\00B7\00B7"
+
+
+@media only screen and (max-width: 992px)  
+  .title
+    // width: 100%
+    text-align: center
+    margin: 0 auto
+    font-size: 2.5rem
+    line-height: 76px
+    font-weight: 700
+    color: #10b0e0

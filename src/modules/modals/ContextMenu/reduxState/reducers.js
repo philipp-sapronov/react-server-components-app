@@ -6,9 +6,10 @@ const reducers = handleActions(
   {
     [actions.toggleContextMenu]: (
       state,
-      { payload: { targetDomain, targetId, targetPosition } }
+      { payload: { triggerModule, triggerId, triggerPosition } }
     ) => {
-      if (state.isVisible && state.targetId === targetId)
+      console.log(triggerModule, triggerId, triggerPosition, '!!!!');
+      if (state.isVisible && state.triggerId === triggerId)
         return {
           ...state,
           isVisible: false,
@@ -16,9 +17,9 @@ const reducers = handleActions(
       return {
         ...state,
         isVisible: true,
-        targetId,
-        targetDomain,
-        targetPosition,
+        triggerId,
+        triggerModule,
+        triggerPosition,
       };
     },
 

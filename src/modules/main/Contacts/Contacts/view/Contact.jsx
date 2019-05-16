@@ -7,7 +7,9 @@ import constants from '../../../../../constants/contactSchema';
 import DotsMenu from '../../../../common/DotsMenu';
 import Avatar from '../../../../common/Avatar';
 
-const avatarStyles = { avatarWrap: styles.avatarWrap, avatar: styles.avatar };
+const { ContactBtn } = DotsMenu;
+const avatarStyles = { avatarWrap: styles.avatarWrap, letters: styles.letters };
+
 function getFullName(name, surname) {
   return `${name} ${surname}`;
 }
@@ -34,7 +36,7 @@ export default function Contact(props) {
             <p className={styles.descript}>{contact[constants.PHONE]}</p>
           </div>
         </NavLink>
-        <DotsMenu targetId={contact[constants.ID]} targetDomain={props.targetDomain} />
+        <ContactBtn triggerId={contact[constants.ID]} module="contact" />
       </div>
     </div>
   );

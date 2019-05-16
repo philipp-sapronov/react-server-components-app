@@ -1,6 +1,6 @@
 export default {
   isVisible: false,
-  targetId: null,
-  targetDomain: null,
-  targetPosition: null,
+  triggerId: null,
+  triggerModule: null,
+  triggerPosition: null,
 };

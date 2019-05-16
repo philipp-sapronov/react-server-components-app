@@ -1,8 +1,7 @@
-const [isVisible, targetId, targetDomain, targetPosition] = [
-  ({ modules }) => modules.contextMenu.isVisible,
-  ({ modules }) => modules.contextMenu.targetId,
-  ({ modules }) => modules.contextMenu.targetDomain,
-  ({ modules }) => modules.contextMenu.targetPosition,
-];
-
-export default { isVisible, targetId, targetDomain, targetPosition };
+export default {
+  isVisible: ({ modules }) => modules.contextMenu.isVisible,
+  //TODO to temp
+  triggerId: ({ modules }) => modules.contextMenu.triggerId,
+  triggerModule: ({ modules }) => modules.contextMenu.triggerModule,
+  triggerPosition: ({ modules }) => modules.contextMenu.triggerPosition,
+};

@@ -6,7 +6,7 @@ import withFragment from '../../../../HOCs/WithFragment/WithFragment';
 const { searchRoute, categoryRoute } = withRoutes;
 const { searchContainer, categoryContainer } = containers;
 
-export default withFragment([
+export default withFragment(
   categoryRoute(categoryContainer(Contacts)),
-  searchRoute(searchContainer(Contacts)),
-]);
+  searchRoute(searchContainer(Contacts))
+);

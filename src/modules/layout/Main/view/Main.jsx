@@ -5,6 +5,7 @@ import Form from '../../../main/Form';
 import ContactPage from '../../../main/ContactPage';
 import Contacts from '../../../main/Contacts/Contacts';
 import scrollStyles from './scrollbar.module.sass';
+
 export default function Main(props) {
   const { scrollThumb, scrollBar, scrollContainer } = props;
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { ConnectedRouter as Router } from 'connected-react-router';
-import { history } from '../modules/root/reducers/rootReducer';
+import { Router } from 'react-router-dom';
+import { history } from '../modules/root/reduxState/rootReducer';
 
 export default Wrapped => () => (
   <Router history={history}>

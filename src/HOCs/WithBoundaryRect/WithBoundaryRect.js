@@ -7,9 +7,9 @@ export default function WithBoundaryRect(Wrapped) {
       super(props);
     }
 
-    clickHandler = (targetId, targetDomain) => e => {
-      const targetPosition = getElementPosition(e);
-      this.props.clickHandler({ targetId, targetDomain, targetPosition });
+    clickHandler = (triggerId, triggerModule) => e => {
+      const triggerPosition = getElementPosition(e);
+      this.props.clickHandler({ triggerId, triggerModule, triggerPosition });
     };
 
     render() {

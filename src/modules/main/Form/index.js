@@ -13,4 +13,4 @@ const WithRoutes = [
   editContactRoute(editContactContainer(WithHandlers(Form))),
 ];
 
-export default WithFragment(WithRoutes);
+export default WithFragment(...WithRoutes);

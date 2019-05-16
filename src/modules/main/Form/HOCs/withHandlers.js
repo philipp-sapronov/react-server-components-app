@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { contactSchema } from '../../../../domains/contacts/state';
-import { history } from './../../../root/reducers/rootReducer';
+import { history } from './../../../root/reduxState/rootReducer';
 
 const caontactFormValidatioon = state => {
   let result = true;
@@ -12,12 +12,22 @@ const caontactFormValidatioon = state => {
 
 function WithHandlers(Wrapped) {
   return class WithHandlers extends Component {
+    constructor(props) {
+      super(props);
+    }
+
     state = this.props.contact || { ...contactSchema.fields };
     placeholders = this.props.placeholders || {};
 
+    getImageFile = file => {
+      const url = window.URL || window.webkitURL;
+      const img = url.createObjectURL(file);
+      this.setState({ avatar: img });
+    };
+
     submitHandler = ID => e => {
       e.preventDefault();
-
+      console.log(this.state, 'STATE');
       if (!caontactFormValidatioon(this.state)) {
         return;
       }
@@ -32,11 +42,17 @@ function WithHandlers(Wrapped) {
     };
 
     changeHandler = ({ target }) => {
-      this.setState({ [target.name]: target.value });
-    };
+      if (target.name === 'avatar') {
+        this.getImageFile(target.files[0]);
+        return;
+      }
 
-    selectHandler = ({ target }) => {
-      this.setState({ [target.name]: target[target.selectedIndex].attributes.dataid.value });
+      if (target.name === 'category') {
+        this.setState({ [target.name]: target[target.selectedIndex].attributes.dataid.value });
+        return;
+      }
+
+      this.setState({ [target.name]: target.value });
     };
 
     cancelHandler = () => {
@@ -51,7 +67,6 @@ function WithHandlers(Wrapped) {
           values={this.state}
           cancelHandler={this.cancelHandler}
           changeHandler={this.changeHandler}
-          selectHandler={this.selectHandler}
           submitHandler={this.submitHandler(this.props.Id)}
         />
       );

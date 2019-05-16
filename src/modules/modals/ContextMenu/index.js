@@ -1,5 +1,5 @@
-import ContextMenu from './views/ContextMenu';
-import WithPosition from './HOCs/WithPosition';
 import Container from './container';
+import ContextMenu from './views/ContextMenu';
+import withPosition from './HOCs/withPosition';
 
-export default Container(WithPosition(ContextMenu));
+export default Container(withPosition(ContextMenu));

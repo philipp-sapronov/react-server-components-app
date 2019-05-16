@@ -1,4 +1,7 @@
-const findById = id => item => item.ID.toString() === id.toString();
+export const findById = id => item => {
+  if (!item || !id) return;
+  return item.ID.toString() === id.toString();
+};
 
 export default domain => (state, ownProps) => {
   if (!ownProps || !ownProps.match.params.id) return;

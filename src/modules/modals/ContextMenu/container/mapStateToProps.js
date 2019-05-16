@@ -1,13 +1,20 @@
 import { selectors as contextMenuSelectors } from '../reduxState';
-import chooseItemsByDomainName from './config';
+import config from '../config';
 
-const { isVisible, targetId, targetDomain, targetPosition } = contextMenuSelectors;
+const { isVisible, triggerId, triggerPosition, triggerModule } = contextMenuSelectors;
+
+const menus = {
+  header: config.headerMenu,
+  contact: config.contactMenu,
+};
 
 export default function mapStateToProps(state) {
+  const component = menus[triggerModule(state)];
+
   return {
-    items: chooseItemsByDomainName(),
+    component,
     isVisible: isVisible(state),
-    targetId: targetId(state),
-    targetPosition: targetPosition(state),
+    triggerId: triggerId(state),
+    triggerPosition: triggerPosition(state),
   };
 }

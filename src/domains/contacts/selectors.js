@@ -3,6 +3,18 @@ import getFoundItems from '../../helpers/getFoundItems';
 import getItemsByCategory from '../../helpers/getItemsByCategory';
 import { reduceItemsByProp, sortItemsByProp } from '../../helpers/sortItemsByProp';
 import getDaysToBirthday from '../../helpers/getDaysToBirthday';
+import queryString from 'query-string';
+import getTodayDate from '../../helpers/getTodayDate';
+import { history } from '../../modules/root/reduxState/rootReducer';
+const defaultProperty = 'name';
+let sortProperty = 'name';
+let searchQuery = '';
+
+function parseQueryString({ location }) {
+  if (!location.search) return;
+  return queryString.parse(location.search);
+}
+
 function getFullName(item) {
   return `${item.name} ${item.surname}`;
 }
@@ -12,34 +24,40 @@ const getContactByUrlId = getItemByUrlId('contacts');
 export default {
   allContacts: ({ domains }) => {
     const items = sortItemsByProp(domains.contacts.entities, 'name');
-    return items;
+    return [...items];
   },
 
   contact: (state, ownProps) => {
-    return getContactByUrlId(state, ownProps);
+    const item = getContactByUrlId(state, ownProps);
+    if (!item || !item.ID) {
+      history.push('/categories/1');
+    }
+    return { ...item };
   },
 
   categoryContacts: (state, ownProps) => {
+    const parsedQS = parseQueryString(ownProps);
+
+    if (parsedQS && parsedQS.sort) {
+      sortProperty = parsedQS.sort;
+    } else {
+      sortProperty = defaultProperty;
+    }
+
     const items = getItemsByCategory(state, ownProps);
-    return reduceItemsByProp(items, 'name');
+    return reduceItemsByProp(items, sortProperty);
   },
 
-  fullName: (state, ownProps) => {
-    const item = getContactByUrlId(state, ownProps);
-    return `${item.name} ${item.surname}`;
-  },
+  foundContacts: ({ domains }, ownProps) => {
+    const parsedQS = parseQueryString(ownProps);
+    if (parsedQS && parsedQS.search) searchQuery = parsedQS.search;
 
-  foundContacts: ({ domains }, searchQuery) => {
     const items = getFoundItems(domains.contacts.entities, searchQuery);
     return reduceItemsByProp(items, 'name');
   },
 
-  birthdays: ({ domains }, searchQuery) => {
-    const date = new Date();
-    const dateNow = date.getDate() + 1;
-    const monthNow = date.getMonth() + 1;
-    const yearNow = date.getFullYear();
-
+  birthdays: ({ domains }) => {
+    const { dateNow, monthNow, yearNow } = getTodayDate();
     const birthdays = domains.contacts.entities.reduce((acc, item) => {
       if (!item.birthday) return acc;
       const newItem = {};

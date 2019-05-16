@@ -1,6 +1,5 @@
-// import React from 'react';
+// import Container from './container';
 import Search from './view/Search';
-import Container from './container';
 import WithHandlers from './HOCs/withHandlers';
 
-export default Container(WithHandlers(Search));
+export default WithHandlers(Search);

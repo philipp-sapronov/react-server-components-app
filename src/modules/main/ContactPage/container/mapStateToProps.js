@@ -1,8 +1,14 @@
-import { selectors as contactSelectors } from '../../../../domains/contacts';
-import domains from '../../../../constants/domains';
+import { selectors as contactsSelectors } from '../../../../domains/contacts';
+import { selectors as categoriesSelectors } from '../../../../domains/categories';
+import { history } from './../../../root/reduxState/rootReducer';
 
-const { contact } = contactSelectors;
+const { contact: getContact } = contactsSelectors;
+const { categoryById } = categoriesSelectors;
 
 export default function mapStateToProps(state, ownProps) {
-  return { entity: contact(state, ownProps), targetDomain: domains.CONTACTS };
+  const contact = getContact(state, ownProps);
+
+  const categoryId = contact.category;
+  contact.category = categoryById(state, categoryId);
+  return { entity: contact };
 }

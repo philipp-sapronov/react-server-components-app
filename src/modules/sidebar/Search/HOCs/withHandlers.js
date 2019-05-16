@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { history } from './../../../root/reducers/rootReducer';
+import { history } from './../../../root/reduxState/rootReducer';
 const validation = fields => fields.searchQuery && fields.searchQuery.trim();
 
 const WithHandlers = Wrapped => {
@@ -14,11 +14,8 @@ const WithHandlers = Wrapped => {
     submitHandler = e => {
       e.preventDefault();
       if (!validation(this.state)) return;
-      const { searchQuery } = this.state;
-      this.props.submitHandler(searchQuery);
+      history.push(`/search?search=${this.state.searchQuery}`);
       this.setState({ searchQuery: '' });
-      //TODO: get contacts from queryString
-      history.push(`/search?query=${searchQuery}`);
     };
 
     changeHandler = ({ target }) => {

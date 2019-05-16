@@ -43,13 +43,6 @@
   .sidebar.isOpened {
     transform: translateX(0%);
   }
-  .sidebar__container {
-    padding: 0 15px;
-    /* width: calc(100% + 100px); */
-  }
-  .sidebar.is-opened {
-    transform: translateX(0%);
-  }
   .sidebar__overlay {
     display: block;
     position: fixed;

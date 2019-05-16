@@ -2,12 +2,12 @@ import React, { Fragment } from 'react';
 // import styles from './form.module.sass';
 import styles from './form.css';
 import stylesSass from './form.module.sass';
-
+import ImageLoader from '../../../common/ImageLoader';
 import contactConstants from '../../../../constants/contactSchema';
 import categoryConstants from '../../../../constants/categorySchema';
-import Avatar from './../../../common/Avatar';
 
 const {
+  AVATAR,
   NAME,
   SURNAME,
   DESCRIPTION,
@@ -18,8 +18,6 @@ const {
   INSTAGRAM,
   CATEGORY,
 } = contactConstants;
-
-const avatarStyles = { avatarWrap: stylesSass.avatarWrap, avatar: stylesSass.avatar };
 
 const { TEXT, ID } = categoryConstants;
 const newContact = { [NAME]: 'new', [SURNAME]: 'contact' };
@@ -33,10 +31,10 @@ export default function Contact(props) {
           className="add-form"
           /*  method="POST" */ name="addContactForm"
           onSubmit={props.submitHandler}
+          onChange={props.changeHandler}
         >
           <div className="flex-1">
-            <Avatar contact={newContact} styles={avatarStyles} />
-
+            <ImageLoader avatar={props.values[AVATAR] || null} />
             <div className="add-contact__fullname-wrap">
               <div className="flex-2">
                 <div className="input-name-inner">
@@ -47,7 +45,6 @@ export default function Contact(props) {
                     value={props.values && props.values[NAME]}
                     name={NAME}
                     // required="required"
-                    onChange={props.changeHandler}
                   />
                 </div>
                 <div className="input-surname-inner">
@@ -57,7 +54,6 @@ export default function Contact(props) {
                     type="text"
                     value={props.values && props.values[SURNAME]}
                     name={SURNAME}
-                    onChange={props.changeHandler}
                   />
                 </div>
               </div>
@@ -67,7 +63,6 @@ export default function Contact(props) {
                   className="input-add input-descript"
                   value={props.values && props.values[DESCRIPTION]}
                   name={DESCRIPTION}
-                  onChange={props.changeHandler}
                 />
               </div>
             </div>
@@ -80,7 +75,6 @@ export default function Contact(props) {
                 type="phone"
                 value={props.values && props.values[PHONE]}
                 name={PHONE}
-                onChange={props.changeHandler}
               />
             </div>
             <div className="input-email-inner input-inner">
@@ -90,7 +84,6 @@ export default function Contact(props) {
                 type="email"
                 value={props.values && props.values[EMAIL]}
                 name={EMAIL}
-                onChange={props.changeHandler}
               />
             </div>
             <div className="input-bday-inner input-inner">
@@ -100,7 +93,6 @@ export default function Contact(props) {
                 type="date"
                 value={props.values && props.values[BIRTHDAY]}
                 name={BIRTHDAY}
-                onChange={props.changeHandler}
               />
             </div>
 
@@ -111,7 +103,6 @@ export default function Contact(props) {
                 type="text"
                 value={props.values && props.values[FACEBOOK]}
                 name={FACEBOOK}
-                onChange={props.changeHandler}
               />
             </div>
             <div className="input-Insta-inner input-inner">
@@ -121,17 +112,11 @@ export default function Contact(props) {
                 type="text"
                 value={props.values && props.values[INSTAGRAM]}
                 name={INSTAGRAM}
-                onChange={props.changeHandler}
               />
             </div>
             <div className="input-Insta-inner input-inner">
               <label>Category</label>
-              <select
-                className="input-add input-category"
-                // type="select"
-                name={CATEGORY}
-                onChange={props.selectHandler}
-              >
+              <select className="input-add input-category" name={CATEGORY}>
                 {props.categories &&
                   props.categories.map(category => {
                     let selected = false;
@@ -139,8 +124,12 @@ export default function Contact(props) {
                     if (
                       props.values[CATEGORY] &&
                       category[ID].toString() === props.values[CATEGORY].toString()
-                    )
+                    ) {
                       selected = true;
+                    } else {
+                      selected = false;
+                    }
+
                     return (
                       <option selected={selected} dataid={category[ID]}>
                         {category[TEXT]}
