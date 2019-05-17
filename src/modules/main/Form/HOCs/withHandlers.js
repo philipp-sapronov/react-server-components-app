@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import { contactSchema } from '../../../../domains/contacts/state';
 import { history } from './../../../root/reduxState/rootReducer';
 
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+const base = 150;
+
 // if (window.File && window.FileReader && window.FileList && window.Blob) {
-//   document.getElementById('files').addEventListener('change', handleFileSelect, false);
+//   document.getcanvasentById('files').addEventListener('change', handleFileSelect, false);
 // } else {
 //   alert('The File APIs are not fully supported in this browser.');
 // }
+
 const reader = new FileReader();
 const caontactFormValidatioon = state => {
   let result = true;
@@ -26,16 +31,50 @@ function WithHandlers(Wrapped) {
     placeholders = this.props.placeholders || {};
 
     base64Convert(file) {
-      //TODO file size check
       const self = this;
       reader.onload = e => {
         var binaryData = e.target.result;
         var base64Img = window.btoa(binaryData);
-        console.log(base64Img);
+        console.log(file, base64Img, '!!!');
         self.setState({ avatar: base64Img });
       };
 
       reader.readAsBinaryString(file);
+    }
+
+    compress(file) {
+      let newfile = null;
+
+      const fileName = file.name;
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = event => {
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = e => {
+          //
+          const ratio = img.width / base;
+          const x = base;
+          const y = img.height / ratio;
+          canvas.width = x;
+          canvas.height = y;
+
+          ctx.drawImage(img, 0, 0, x, y);
+          ctx.canvas.toBlob(
+            blob => {
+              newfile = new File([blob], fileName, {
+                type: 'image/jpeg',
+                lastModified: Date.now(),
+              });
+              this.base64Convert(newfile);
+            },
+            'image/jpeg',
+            1
+          );
+        };
+        reader.onerror = error => console.log(error);
+      };
     }
 
     _getImageFilePath = file => {
@@ -61,7 +100,7 @@ function WithHandlers(Wrapped) {
 
     changeHandler = ({ target }) => {
       if (target.name === 'avatar') {
-        this.base64Convert(target.files[0]);
+        this.compress(target.files[0]);
         return;
       }
 
