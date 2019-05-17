@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { contactSchema } from '../../../../domains/contacts/state';
 import { history } from './../../../root/reduxState/rootReducer';
 
+// if (window.File && window.FileReader && window.FileList && window.Blob) {
+//   document.getElementById('files').addEventListener('change', handleFileSelect, false);
+// } else {
+//   alert('The File APIs are not fully supported in this browser.');
+// }
+const reader = new FileReader();
 const caontactFormValidatioon = state => {
   let result = true;
   contactSchema.required.forEach(prop => {
@@ -19,15 +25,27 @@ function WithHandlers(Wrapped) {
     state = this.props.contact || { ...contactSchema.fields };
     placeholders = this.props.placeholders || {};
 
-    getImageFile = file => {
+    base64Convert(file) {
+      //TODO file size check
+      const self = this;
+      reader.onload = e => {
+        var binaryData = e.target.result;
+        var base64Img = window.btoa(binaryData);
+        console.log(base64Img);
+        self.setState({ avatar: base64Img });
+      };
+
+      reader.readAsBinaryString(file);
+    }
+
+    _getImageFilePath = file => {
       const url = window.URL || window.webkitURL;
-      const img = url.createObjectURL(file);
-      this.setState({ avatar: img });
+      const imgPath = url.createObjectURL(file);
+      this.setState({ avatar: imgPath });
     };
 
     submitHandler = ID => e => {
       e.preventDefault();
-      console.log(this.state, 'STATE');
       if (!caontactFormValidatioon(this.state)) {
         return;
       }
@@ -43,7 +61,7 @@ function WithHandlers(Wrapped) {
 
     changeHandler = ({ target }) => {
       if (target.name === 'avatar') {
-        this.getImageFile(target.files[0]);
+        this.base64Convert(target.files[0]);
         return;
       }
 

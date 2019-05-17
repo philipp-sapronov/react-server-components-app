@@ -1,29 +1,30 @@
 .container
-  border-radius: 4px
+  border-radius: 2px
   box-sizing: border-box
   max-height: 300px
   min-width: 100px 
   overflow: hidden
   position: fixed
   z-index: 10
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
 
 .inner  
   background-color: #fff
 
-.item  
+.item
+  
   padding: 10px 20px
   min-height: 10px
   width: 100%
-  background-color: #57628c
+  background-color: #eee
   cursor: pointer
   transition: background-color .3s ease
   
 
 .item:hover
-  background-color: lighten(#57628c, 10%) 
+  background-color: darken(#eee, 10%) 
 
 .title
-  color: white
-  font-size: 14px
+  color: black
+  font-size: 16px
   margin-bottom: 2px

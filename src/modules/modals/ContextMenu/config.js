@@ -13,6 +13,14 @@ const editHandler = ({ data }) => {
   history.push(`/contact_edit/${data}`);
 };
 
+const removeHandler = data => {
+  setTimeout(() => {
+    boundActions.removeContact(data);
+  }, 0);
+  history.push('/categories/1');
+  return;
+};
+
 const sortBy = prop => () => {
   history.push(`?sort=${prop}`);
 };
@@ -20,6 +28,11 @@ const sortBy = prop => () => {
 const contactMenuItems = [
   { text: 'edit', action: editHandler },
   { text: 'remove', action: boundActions.removeContact },
+];
+
+const contactMenuHeaderItems = [
+  { text: 'edit', action: editHandler },
+  { text: 'remove', action: removeHandler },
 ];
 
 const sortMenuItems = [
@@ -30,6 +43,7 @@ const sortMenuItems = [
 //carring items to component view
 const views = {
   ContactMenu: ContextMenu(contactMenuItems),
+  ContactHeaderMenu: ContextMenu(contactMenuHeaderItems),
   SortMenu: ContextMenu(sortMenuItems),
 };
 
@@ -37,8 +51,8 @@ const views = {
 const contactMenu = views.ContactMenu;
 
 //HeaderMenu
-const HeaderSortMenu = contactRoute(views.ContactMenu);
-const HeaderContactMenu = categoryRoute(views.SortMenu);
+const HeaderContactMenu = contactRoute(views.ContactHeaderMenu);
+const HeaderSortMenu = categoryRoute(views.SortMenu);
 
 export default {
   headerMenu: withFragment(HeaderSortMenu, HeaderContactMenu),

@@ -4,7 +4,7 @@ import styles from './avatar.module.sass';
 export default function Avatar(props) {
   const { getFirstLettersOfName, contact } = props;
   const style = {
-    backgroundImage: `url(${contact.avatar})`,
+    backgroundImage: `url('data:image/jpg;base64,${contact.avatar}')`,
   };
   return (
     <div className={props.styles.avatarWrap}>

@@ -7,7 +7,7 @@ const acceptedExts = ['image/x-png', 'image/jpeg'];
 
 export default function ImageLoader(props) {
   const style = {
-    backgroundImage: `url(${props.avatar})`,
+    backgroundImage: `url('data:image/jpg;base64,${props.avatar}')`,
   };
 
   return (
