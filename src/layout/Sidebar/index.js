@@ -1,6 +1,4 @@
-import React from "react";
-import Sidebar from "./view/Sidebar";
+import Sidebar from "./Sidebar/Sidebar";
 import { WithScrollbar } from "../../HOCs/WithScrollbar/WithScrollbar";
-import Container from "./container";
 
-export default Container(WithScrollbar(Sidebar));
+export default WithScrollbar(Sidebar);

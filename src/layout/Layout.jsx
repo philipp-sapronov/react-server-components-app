@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import Main from "./Main";
 // import ContextMenu from "../../modals/ContextMenu";
 
-export const Layout = ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <div className="page__wrapper">
       <Sidebar />
@@ -12,3 +12,5 @@ export const Layout = ({ children }) => {
     </div>
   );
 };
+
+export default Layout;
