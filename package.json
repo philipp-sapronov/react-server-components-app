@@ -4,18 +4,17 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
-    "history": "^4.9.0",
-    "moment": "^2.24.0",
-    "node-sass": "^4.11.0",
-    "query-string": "^6.5.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^6.0.1",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.0",
-    "redux": "^4.0.1",
+    "moment": "^2.29.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.1",
+    "redux": "^4.0.5",
     "redux-actions": "^2.6.5",
-    "redux-persist": "^5.10.0"
+    "redux-persist": "^6.0.0",
+    "sass": "^1.32.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,9 +22,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "now-build": "react-scripts build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
