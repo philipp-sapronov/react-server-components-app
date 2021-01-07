@@ -1,0 +1,41 @@
+.wrap 
+  position: absolute
+  right: 0px
+  bottom: 0px
+  top: 75px
+  background-color: #ddd
+  width: 5px
+  opacity: 0
+  z-index: 1
+  transition: opacity .3s ease
+  heigth: calc(100% - 75px)
+
+
+.bar 
+  position: absolute
+  top: 0
+  left: 0
+  background-color: #444
+  min-width: 5px
+  opacity: .5
+  transition: opacity .1s ease, transform .3s ease-out
+  z-index: 2
+
+
+.bar:hover 
+  opacity: 1
+
+.wrap:hover 
+  width: 8px
+
+.wrap:hover .bar 
+  opacity: .8
+  width: 8px
+
+.wrap.active 
+  opacity: .8
+  width: 8px
+
+.wrap.active .bar 
+  width: 8px
+  opacity: .8

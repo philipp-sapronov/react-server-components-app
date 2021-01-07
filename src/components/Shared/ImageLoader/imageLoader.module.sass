@@ -1,0 +1,64 @@
+.input 
+  opacity: 0
+  position: absolute
+  width: 0.1px
+  height: 0.1px
+  z-index: -1
+
+.wrap  
+  display: flex
+  position: relative
+  align-items: center
+  cursor: pointer
+  justify-content: center
+  height: 120px
+  width: 120px
+  min-height: 120px
+  min-width: 120px
+  overflow: hidden
+  margin-right: 20px
+  border-radius: 150px
+  background-color: #10b1df
+
+.wrap:hover
+  background-color: lighten(#10b1df, 5%)
+
+.avatar
+  height: 100%
+  width: 100%
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+  
+.icon 
+  width: 30%
+  height: 30%
+  margin: 0 auto
+  fill: #fff
+  opacity: 1
+  
+
+.label   
+  cursor: pointer  
+  position: absolute
+  width: 100%
+  height: 100%
+
+
+.inputIcon
+  opacity: 0
+  position: absolute
+  width: 50%
+  height: 50%
+  transition: opacity .15s ease-out
+  fill: #fff
+
+.wrap:hover .inputIcon
+  opacity: 1
+
+.wrap:hover .icon
+  opacity: 0
+
+
+
+
