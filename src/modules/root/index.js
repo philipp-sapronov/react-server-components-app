@@ -1,5 +1,4 @@
-import Root from './views/Root';
-import WithProvider from './HOCs/WithProvider';
-import WithRouter from './../../routes/withRouter';
+import Root from "./views/Root";
+import WithProvider from "./HOCs/WithProvider";
 
-export default WithProvider(WithRouter(Root));
+export default WithProvider(Root);

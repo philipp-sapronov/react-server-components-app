@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Header from './view/Header';
-import routes from './../../../routes/routes';
+import routes from '../../../router/routes';
 import state from './container/mapStateToProps';
 
 import WithFragment from '../../../HOCs/WithFragment/WithFragment';
