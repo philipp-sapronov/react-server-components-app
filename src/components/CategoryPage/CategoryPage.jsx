@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./category-page.module.sass";
 
 import Header from "./Header";
-import { ContactList } from "../ContactList/Contacts";
+import { ContactList } from "./ContactList/Contacts";
 
 import scrollStyles from "./scrollbar.module.sass";
-import { WithScrollbar } from "../../../HOCs/WithScrollbar/WithScrollbar";
+import { WithScrollbar } from "../../HOCs/WithScrollbar/WithScrollbar";
 
 const Page = (props) => {
   const { scrollThumb, scrollBar, scrollContainer } = props;
@@ -33,4 +33,4 @@ const Page = (props) => {
   );
 };
 
-export const ContactsPage = WithScrollbar(Page);
+export default WithScrollbar(Page);

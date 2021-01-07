@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./contactPage.module.sass";
-import Avatar from "../../Shared/Avatar";
+import Avatar from "../Shared/Avatar";
 
 const avatarStyles = {
   avatarWrap: styles.avatarWrap,

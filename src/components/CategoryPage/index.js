@@ -1,1 +1,1 @@
-export { ContactsPage } from "./CategoryPage/CategoryPage";
+export { default } from "./CategoryPage";
