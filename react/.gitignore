@@ -2,9 +2,6 @@
 
 # dependencies
 /node_modules
-/*/node_modules
-/*/dist
-
 /.pnp
 .pnp.js
 
@@ -13,9 +10,15 @@
 
 # production
 /build
+/dist
+
+# notes
+notes/*.md
 
 # misc
 .DS_Store
+.eslintcache
+.env
 .env.local
 .env.development.local
 .env.test.local
@@ -25,5 +28,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-.idea
-.eslintcache
+# vscode
+.vscode

@@ -1,0 +1,33 @@
+version: "3.8"
+
+networks:
+  main:
+    driver: bridge
+
+services:
+  api:
+    build:
+      context: ./api
+    container_name: api
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    command: "yarn start"
+    networks:
+      - main
+
+  react:
+    build:
+      context: ./react
+    container_name: react
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./react/notes:/opt/notes-app/notes
+      - ./react/public:/opt/notes-app/public
+      - ./react/scripts:/opt/notes-app/scripts
+      - ./react/server:/opt/notes-app/server
+      - ./react/src:/opt/notes-app/src
+      - ./react/credentials.js:/opt/notes-app/credentials.js
+    networks:
+      - main
