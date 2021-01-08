@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 const __bindAll = (obj, ...args) => {
-  args.forEach(item => {
+  args.forEach((item) => {
     obj[item.name] = obj[item.name].bind(obj);
   });
 };
 
 const $body = document.body;
 
-export const WithScrollbar = Wrapped => {
+export const WithScrollbar = (Wrapped) => {
   return class extends Component {
     constructor(props) {
       super(props);
@@ -51,11 +51,9 @@ export const WithScrollbar = Wrapped => {
 
       if (this._scrollContainerHeight <= this._scrollBarHeight) {
         this._scrollBar.current.style.opacity = 0;
-        console.log(this._scrollBar.current.style.opacity, 'CURRENT');
         return;
       } else {
         this._scrollBar.current.style.opacity = 1;
-        console.log(this._scrollBar.current.style.opacity, 'CURRENT');
         this._setScrollThumbHeight();
         this._getScrollThumbPosition();
         this._moveScrollThumb();
@@ -75,7 +73,9 @@ export const WithScrollbar = Wrapped => {
     _moveScrollThumb = () => {
       requestAnimationFrame(() => {
         let koef = this._h1 / this._scrollContainer.current.scrollTop;
-        this._scrollThumb.current.style.transform = `translateY(${this._h2 / koef}px)`;
+        this._scrollThumb.current.style.transform = `translateY(${
+          this._h2 / koef
+        }px)`;
       });
     };
 
@@ -87,7 +87,7 @@ export const WithScrollbar = Wrapped => {
       this._moveScrollThumb();
     };
 
-    _onMouseDown = e => {
+    _onMouseDown = (e) => {
       e.preventDefault();
       this._startMousePosition = e.clientY;
       this._startScrollThumbPosition = this._scrollContainer.current.scrollTop;
@@ -97,9 +97,11 @@ export const WithScrollbar = Wrapped => {
       $body.addEventListener('mouseleave', this._offMouseMove);
     };
 
-    _onMouseMove = e => {
-      const movedPosition = (e.clientY - this._startMousePosition) * this._relation;
-      this._scrollContainer.current.scrollTop = this._startScrollThumbPosition + movedPosition;
+    _onMouseMove = (e) => {
+      const movedPosition =
+        (e.clientY - this._startMousePosition) * this._relation;
+      this._scrollContainer.current.scrollTop =
+        this._startScrollThumbPosition + movedPosition;
     };
 
     _offMouseMove = () => {
@@ -113,8 +115,14 @@ export const WithScrollbar = Wrapped => {
         <Wrapped
           {...this.props}
           scrollBar={{ ref: this._scrollBar }}
-          scrollThumb={{ ref: this._scrollThumb, onMouseDown: this._onMouseDown }}
-          scrollContainer={{ ref: this._scrollContainer, onScroll: this._onScroll }}
+          scrollThumb={{
+            ref: this._scrollThumb,
+            onMouseDown: this._onMouseDown,
+          }}
+          scrollContainer={{
+            ref: this._scrollContainer,
+            onScroll: this._onScroll,
+          }}
         />
       );
     }

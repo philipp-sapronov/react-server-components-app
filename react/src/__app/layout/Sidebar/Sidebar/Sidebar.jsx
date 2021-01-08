@@ -1,14 +1,15 @@
-import React, { Fragment } from "react";
-import styles from "./sidebar.module.sass";
-import Logo from "../Logo";
-import AccountPanel from "../AccountPanel";
-import Categories from "../Categories";
-import Search from "../Search";
-import Birthdays from "../Birthdays";
-import AddContactBtn from "../AddContactBtn";
-import ToggleSidebar from "./../../ToggleSidebar";
-import { ReactComponent as IconClose } from "../../../layout/ToggleSidebar/images/close.svg";
-import classNames from "classnames";
+import React, { Fragment } from 'react';
+import styles from './sidebar.module.sass';
+import Logo from '../Logo';
+import AccountPanel from '../AccountPanel';
+import Categories from '../Categories';
+import Search from '../Search';
+import Birthdays from '../Birthdays';
+import AddContactBtn from '../AddContactBtn';
+import ToggleSidebar from './../../ToggleSidebar';
+// import { ReactComponent as IconClose } from "../../../layout/ToggleSidebar/images/close.svg";
+
+import classNames from 'classnames';
 
 export default function Sidebar(props) {
   const { scrollThumb, scrollBar, scrollContainer, isSidebarOpen } = props;
@@ -35,11 +36,10 @@ export default function Sidebar(props) {
         <div
           className={`sidebar__container`}
           ref={scrollContainer.ref}
-          onScroll={scrollContainer.onScroll}
-        >
+          onScroll={scrollContainer.onScroll}>
           <div className={styles.inner}>
             <div className={styles.toggleWrap}>
-              <ToggleSidebar icon={IconClose} />
+              <ToggleSidebar icon={'/assets/close.svg'} />
             </div>
             <Logo />
             <AccountPanel />

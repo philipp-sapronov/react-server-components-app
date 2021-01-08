@@ -13,6 +13,7 @@ const rimraf = require('rimraf');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactServerWebpackPlugin = require('react-server-dom-webpack/plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 rimraf.sync(path.resolve(__dirname, '../build'));
@@ -25,8 +26,19 @@ webpack(
       path: path.resolve(__dirname, '../build'),
       filename: 'main.js',
     },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
     module: {
       rules: [
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: ['style-loader', 'css-loader', 'sass-loader'],
+        },
         {
           test: /\.(js|jsx)$/,
           use: 'babel-loader',
@@ -35,13 +47,15 @@ webpack(
       ],
     },
     plugins: [
+      // new ExtractTextPlugin('bundle.min.css'),
       new HtmlWebpackPlugin({
         inject: true,
         template: path.resolve(__dirname, '../public/index.html'),
       }),
-      new ReactServerWebpackPlugin({isServer: false}),
+      new ReactServerWebpackPlugin({ isServer: false }),
     ],
   },
+
   (err, stats) => {
     if (err) {
       console.error(err.stack || err);

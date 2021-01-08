@@ -1,9 +1,7 @@
-import React from "react";
-import styles from "./imageLoader.module.sass";
-import { ReactComponent as ImageIcon } from "./images/frame-landscape.svg";
-import { ReactComponent as InputIcon } from "./images/add-image.svg";
+import React from 'react';
+import styles from './imageLoader.module.sass';
 
-const acceptedExts = ["image/x-png", "image/jpeg"];
+const acceptedExts = ['image/x-png', 'image/jpeg'];
 
 export default function ImageLoader(props) {
   const style = {
@@ -15,9 +13,9 @@ export default function ImageLoader(props) {
       {props.avatar ? (
         <div className={styles.avatar} style={style} />
       ) : (
-        <ImageIcon className={styles.icon} />
+        <img className={styles.icon} src={'/assets/frame-landscape.svg'} />
       )}
-      <InputIcon className={styles.inputIcon} />
+      <img className={styles.inputIcon} src={'/assets/add-image.svg'} />
       <label className={styles.label} htmlFor="fileInput" />
       <input
         ref={props.inpuRef}

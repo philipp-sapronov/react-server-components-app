@@ -8,20 +8,14 @@
 
 import { Switch, Route, Router } from './server-router/index.server';
 
-import About from './About/about.server';
-import Home from './Home/home.server';
 import React from 'react';
 
 export default function App({ url }) {
   return (
     <Router url={url}>
       <Switch>
-        <Route path={'/about'} serverOnly>
-          <About />
-        </Route>
-        <Route exact path={'/'}>
-          <Home />
-        </Route>
+        <Route path={'/about'} serverOnly></Route>
+        <Route exact path={'/'}></Route>
       </Switch>
     </Router>
   );

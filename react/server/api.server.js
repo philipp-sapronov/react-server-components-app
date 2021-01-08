@@ -1,11 +1,5 @@
 'use strict';
-// Don't keep credentials in the source tree in a real app!
-// const {Pool} = require('pg');
-// const pool = new Pool(require('../credentials'));
-
 require('react-server-dom-webpack/node-register')();
-// babel
-
 require('@babel/register')({
   ignore: [/[\\\/](build|server|node_modules)[\\\/]/],
   // only: [/[\\\/](src)[\\\/]/],

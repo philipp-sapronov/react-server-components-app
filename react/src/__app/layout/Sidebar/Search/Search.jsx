@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import styles from "./search.module.sass";
-import { ReactComponent as Icon } from "./images/search.svg";
-import { useHistory } from "react-router";
+import React, { useState } from 'react';
+import styles from './search.module.sass';
+import { useHistory } from 'react-router';
 
 function validation() {}
 
@@ -14,7 +13,7 @@ export default function Search() {
     e.preventDefault();
     if (!validation(state)) return;
     history.push(`/search?search=${state.searchQuery}`);
-    setState({ searchQuery: "" });
+    setState({ searchQuery: '' });
   };
 
   const changeHandler = ({ target }) => {
@@ -35,7 +34,7 @@ export default function Search() {
         value={state.searchQuery}
       />
       <button type="submit" className={styles.iconWrap}>
-        <Icon className={styles.icon} />
+        <img src="/assets/search.svg" alt="icon" />
       </button>
     </form>
   );
