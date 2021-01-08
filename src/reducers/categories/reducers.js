@@ -1,8 +1,6 @@
 import { createActions, handleActions } from "redux-actions";
-import {} from "redux-actions";
 import { state } from "./";
 import { categoryFactory } from "./state";
-import constants from "../../constants/contactSchema";
 
 import domains from "../../constants/domains";
 import contextMenuItems from "../../constants/contextMenuItems";
@@ -19,9 +17,7 @@ const actions = createActions(
 );
 
 function findUniqIdxByPhone({ entities }, data) {
-  return entities.findIndex(
-    (item) => item[constants.PHONE] === data[constants.PHONE]
-  );
+  return entities.findIndex((item) => item.phone === data.phone);
 }
 
 export default handleActions(

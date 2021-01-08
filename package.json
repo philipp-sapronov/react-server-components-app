@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "Faker": "^0.7.2",
     "classnames": "^2.2.6",
     "moment": "^2.29.1",
     "react": "^17.0.1",

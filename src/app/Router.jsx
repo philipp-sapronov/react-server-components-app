@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import ContactPage from "../components/ContactPage";
 import CategoryPage from "../components/CategoryPage";
-import ContactFormPage from "../components/CategoryPage";
+import ContactFormPage from "../components/ContactFormPage";
 
 export const Router = () => {
   return (
@@ -11,13 +11,9 @@ export const Router = () => {
       <Route path={"/categories/:id"} exact={true} component={CategoryPage} />
       <Route path={"/contacts/:id"} exact={true} component={ContactPage} />
       <Route path={"/search"} exact={true} component={CategoryPage} />
+      <Route path={"/add-contact"} exact={true} component={ContactFormPage} />
       <Route
-        path={"/contact_add/:id"}
-        exact={true}
-        component={ContactFormPage}
-      />
-      <Route
-        path={"/contact_edit/:id"}
+        path={"/edit-contact/:id"}
         exact={true}
         component={ContactFormPage}
       />

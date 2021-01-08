@@ -5,11 +5,11 @@ import ToggleSidebar from "../../layout/ToggleSidebar";
 import { ReactComponent as Icon } from "../../layout/ToggleSidebar/images/burger.svg";
 import DotsMenu from "../../components/Shared/DotsMenu";
 
-export default function Component(props) {
+export default function Component({ title = "Header" }) {
   return (
     <header className={styles.wrap}>
       <ToggleSidebar icon={Icon} />
-      <h2 className={styles.title}>{"Header text"}</h2>
+      <h2 className={styles.title}>{title}</h2>
       <DotsMenu module="header" />
     </header>
   );

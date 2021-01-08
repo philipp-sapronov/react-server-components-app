@@ -1,19 +1,41 @@
 import React from "react";
 import styles from "./contacts.module.sass";
 import Contact from "../Contact/Contact";
+import { useContacts } from "../../../hooks/contacts";
 
-export const ContactList = (props) => {
-  console.log(props, "PROPS CONTACT");
-  if (!props.entities) return null;
+export const ContactList = () => {
+  const items = useContacts();
 
-  return props.entities.map((blocks) => (
-    <div className="wrap">
-      <p className={styles.letter}>{blocks.sortLetter}</p>
-      <div className={styles.container}>
-        {blocks.entities.map((contact) => (
-          <Contact key={contact.ID} contact={contact} {...props} />
-        ))}
+  items.sort((a, b) => {
+    if (a.lastname === b.lastname) return 0;
+    if (a.lastname > b.lastname) return 1;
+    else return -1;
+  });
+
+  const blocks = [[]];
+
+  items.reduce((prev, it) => {
+    const prevLetter = prev ? prev.lastname.charAt(0) : null;
+    const nextLetter = it.lastname.charAt(0);
+
+    if (prevLetter !== nextLetter) blocks.push([]);
+
+    blocks[blocks.length - 1].push(it);
+    return it;
+  }, items[0]);
+
+  return blocks.map((block) => {
+    const letter = block[0].lastname.charAt(0);
+
+    return (
+      <div className="wrap">
+        <p className={styles.letter}>{letter}</p>
+        <div className={styles.container}>
+          {block.map((contact) => (
+            <Contact key={contact.id} contact={contact} />
+          ))}
+        </div>
       </div>
-    </div>
-  ));
+    );
+  });
 };

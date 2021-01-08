@@ -1,7 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export const burgerMenu = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53 53" className="burger-menu">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 53 53"
+    className="burger-menu"
+  >
     <path
       className="burger-menu__path"
       d="M2,13.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,13.5,2,13.5z"
@@ -47,7 +51,11 @@ export const Plus = () => (
 );
 
 export const Bell = () => (
-  <svg version="1.2" className="bell-icon header__contrlos__svg" viewBox="0 0 50 50">
+  <svg
+    version="1.2"
+    className="bell-icon header__contrlos__svg"
+    viewBox="0 0 50 50"
+  >
     <path
       className="header__contrlos__svg-path"
       fill="#0E0F0F"
@@ -135,8 +143,26 @@ export const DotsMenu = () => (
     viewBox="0 0 50 50"
     overflow="scroll"
   >
-    <circle className="todo-item__control" fill="#FFF" cx="25" cy="25" r="6.2" />
-    <circle className="todo-item__control" fill="#FFF" cx="6.5" cy="25" r="6.2" />
-    <circle className="todo-item__control" fill="#FFF" cx="43.5" cy="25" r="6.2" />
+    <circle
+      className="todo-item__control"
+      fill="#FFF"
+      cx="25"
+      cy="25"
+      r="6.2"
+    />
+    <circle
+      className="todo-item__control"
+      fill="#FFF"
+      cx="6.5"
+      cy="25"
+      r="6.2"
+    />
+    <circle
+      className="todo-item__control"
+      fill="#FFF"
+      cx="43.5"
+      cy="25"
+      r="6.2"
+    />
   </svg>
 );

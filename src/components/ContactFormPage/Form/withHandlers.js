@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import { contactSchema } from "../../../../domains/contacts/state";
-import { history } from "./../../../root/reduxState/rootReducer";
 
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 const base = 150;
 
 const reader = new FileReader();
-const caontactFormValidatioon = (state) => {
+
+const validateForm = (state) => {
   let result = true;
-  contactSchema.required.forEach((prop) => {
+  [].forEach((prop) => {
     if (!state[prop] || !state[prop].trim()) result = false;
   });
   return result;
@@ -21,7 +20,7 @@ function WithHandlers(Wrapped) {
       super(props);
     }
 
-    state = this.props.contact || { ...contactSchema.fields };
+    state = {};
     placeholders = this.props.placeholders || {};
 
     base64Convert(file) {
@@ -79,7 +78,7 @@ function WithHandlers(Wrapped) {
 
     submitHandler = (ID) => (e) => {
       e.preventDefault();
-      if (!caontactFormValidatioon(this.state)) {
+      if (!validateForm(this.state)) {
         return;
       }
       const newItem = {

@@ -1,49 +1,27 @@
-import React, { Fragment } from "react";
+import React from "react";
 // import styles from './form.module.sass';
 import "./form.css";
 import "./form.module.sass";
-import ImageLoader from "../../../Shared/ImageLoader";
-import contactConstants from "../../../../constants/contactSchema";
-import categoryConstants from "../../../../constants/categorySchema";
-
-const {
-  AVATAR,
-  NAME,
-  SURNAME,
-  DESCRIPTION,
-  PHONE,
-  EMAIL,
-  BIRTHDAY,
-  FACEBOOK,
-  INSTAGRAM,
-  CATEGORY,
-} = contactConstants;
-
-const { TEXT, ID } = categoryConstants;
-const newContact = { [NAME]: "new", [SURNAME]: "contact" };
+import ImageLoader from "../../Shared/ImageLoader";
+import { ContactField } from "../../../constants/contactSchema";
 
 export default function Contact(props) {
-  console.log(props, "FORM VIEW PROPS");
+  const { onSubmit, onChange, onCancel, values, categories = [] } = props;
   return (
     <div className="add-contact__form-wrap">
       <div className="add-contact__form">
-        <form
-          className="add-form"
-          /*  method="POST" */ name="addContactForm"
-          onSubmit={props.submitHandler}
-          onChange={props.changeHandler}
-        >
+        <form className="add-form" onSubmit={onSubmit} onChange={onChange}>
           <div className="flex-1">
-            <ImageLoader avatar={props.values[AVATAR] || null} />
+            <ImageLoader avatar={values.avatar || null} />
             <div className="add-contact__fullname-wrap">
               <div className="flex-2">
                 <div className="input-name-inner">
                   <label className="field-add field-name">Name</label>
                   <input
                     className="input-add input-name"
+                    name={ContactField.firstname}
                     type="text"
-                    value={props.values && props.values[NAME]}
-                    name={NAME}
+                    value={values.firstname}
                     // required="required"
                   />
                 </div>
@@ -52,8 +30,8 @@ export default function Contact(props) {
                   <input
                     className="input-add input-surname"
                     type="text"
-                    value={props.values && props.values[SURNAME]}
-                    name={SURNAME}
+                    value={values.lastname}
+                    name={ContactField.lastname}
                   />
                 </div>
               </div>
@@ -61,8 +39,8 @@ export default function Contact(props) {
                 <label className="field-add field-descript">Description</label>
                 <textarea
                   className="input-add input-descript"
-                  value={props.values && props.values[DESCRIPTION]}
-                  name={DESCRIPTION}
+                  value={values.description}
+                  name={ContactField.description}
                 />
               </div>
             </div>
@@ -73,8 +51,8 @@ export default function Contact(props) {
               <input
                 className="input-add input-phone"
                 type="phone"
-                value={props.values && props.values[PHONE]}
-                name={PHONE}
+                value={values.phone}
+                name={ContactField.phone}
               />
             </div>
             <div className="input-email-inner input-inner">
@@ -82,8 +60,8 @@ export default function Contact(props) {
               <input
                 className="input-add input-email"
                 type="email"
-                value={props.values && props.values[EMAIL]}
-                name={EMAIL}
+                value={values.email}
+                name={ContactField.email}
               />
             </div>
             <div className="input-bday-inner input-inner">
@@ -91,8 +69,8 @@ export default function Contact(props) {
               <input
                 className="input-add input-bday"
                 type="date"
-                value={props.values && props.values[BIRTHDAY]}
-                name={BIRTHDAY}
+                value={values.birthday}
+                name={ContactField.birthday}
               />
             </div>
 
@@ -101,8 +79,8 @@ export default function Contact(props) {
               <input
                 className="input-add input-fb-acc"
                 type="text"
-                value={props.values && props.values[FACEBOOK]}
-                name={FACEBOOK}
+                value={values.facebook}
+                name={ContactField.facebook}
               />
             </div>
             <div className="input-Insta-inner input-inner">
@@ -110,48 +88,32 @@ export default function Contact(props) {
               <input
                 className="input-add input-instg-acc"
                 type="text"
-                value={props.values && props.values[INSTAGRAM]}
-                name={INSTAGRAM}
+                value={values.instagram}
+                name={ContactField.instagram}
               />
             </div>
             <div className="input-Insta-inner input-inner">
               <label>Category</label>
-              <select className="input-add input-category" name={CATEGORY}>
-                {props.categories &&
-                  props.categories.map((category) => {
-                    let selected = false;
-
-                    if (
-                      props.values[CATEGORY] &&
-                      category[ID].toString() ===
-                        props.values[CATEGORY].toString()
-                    ) {
-                      selected = true;
-                    } else {
-                      selected = false;
-                    }
-
-                    return (
-                      <option selected={selected} dataid={category[ID]}>
-                        {category[TEXT]}
-                      </option>
-                    );
-                  })}
+              {/* FIXME add CategoryField enum */}
+              <select className="input-add input-category" name={"category"}>
+                {(categories || []).map((category) => {
+                  return (
+                    <option selected={category.id === values.category}>
+                      {category.text}
+                    </option>
+                  );
+                })}
               </select>
             </div>
           </div>
           <div className="save-controls-wrap">
             <div className="save-controls-inner">
               <div className="save-controls__btns">
-                <button
-                  onClick={props.submitHandler}
-                  className="btn btn__save btn--theme-f"
-                  type="submit"
-                >
+                <button className="btn btn__save btn--theme-f" type="submit">
                   save
                 </button>
                 <button
-                  onClick={props.cancelHandler}
+                  onClick={onCancel}
                   className="btn btn__cancel btn--theme-e"
                   type="button"
                 >

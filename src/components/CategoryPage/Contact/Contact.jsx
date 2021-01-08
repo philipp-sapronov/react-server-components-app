@@ -13,30 +13,36 @@ function getFullName(name, surname) {
   return `${name} ${surname}`;
 }
 
-export default function Contact(props) {
-  if (!props.contact) return null;
+const Contact = (props) => {
+  const { contact } = props;
+
+  if (!contact) return null;
 
   const itemClassNames = clsx({
     [styles.gridItem]: true,
     [styles.item]: true,
   });
 
-  const { contact } = props;
-
   return (
-    <div className={itemClassNames} key={contact[constants.ID]}>
+    <div key={contact.id} className={itemClassNames}>
       <div className={styles.inner}>
-        <NavLink exact to={`/contacts/${contact[constants.ID]}`}>
-          <Avatar contact={contact} styles={avatarStyles} />
+        <NavLink exact to={`/contacts/${contact.id}`}>
+          <Avatar
+            src={contact.avatar}
+            letter={contact.firstname.charAt(0)}
+            styles={avatarStyles}
+          />
           <div className={styles.nameWrap}>
             <p className={styles.name}>
-              {getFullName(contact[constants.NAME], contact[constants.SURNAME])}
+              {getFullName(contact.firstname, contact.lastname)}
             </p>
-            <p className={styles.descript}>{contact[constants.PHONE]}</p>
+            <p className={styles.description}>{contact.phone}</p>
           </div>
         </NavLink>
-        <ContactBtn triggerId={contact[constants.ID]} module="contact" />
+        {/*<ContactBtn triggerId={contact[constants.id]} module="contact" />*/}
       </div>
     </div>
   );
-}
+};
+
+export default Contact;

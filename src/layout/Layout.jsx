@@ -1,13 +1,15 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import Main from "./Main";
+import styles from "./main.module.sass";
 // import ContextMenu from "../../modals/ContextMenu";
 
 const Layout = ({ children }) => {
   return (
     <div className="page__wrapper">
       <Sidebar />
-      <Main>{children}</Main>
+      <div className={styles.wrapper}>
+        <main>{children}</main>
+      </div>
       {/*<ContextMenu />*/}
     </div>
   );

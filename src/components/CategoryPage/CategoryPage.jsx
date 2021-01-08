@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./category-page.module.sass";
 
-import Header from "./Header";
+import Header from "../Header";
 import { ContactList } from "./ContactList/Contacts";
 
 import scrollStyles from "./scrollbar.module.sass";
