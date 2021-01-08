@@ -1,5 +1,5 @@
-import { getUUID } from "../helpers/getUUID";
-import Faker from "Faker";
+import { getUUID } from '../helpers/getUUID';
+import Faker from 'Faker';
 
 const phoneNumber = function () {
   return Faker.Helpers.replaceSymbolWithNumber(
@@ -26,9 +26,9 @@ export class Contact {
     this.phone = phoneNumber();
     this.email = Faker.Internet.email();
     this.birthday = new Date('1995-12-17T03:24:00');
-    this.facebook = "";
-    this.instagram = "";
-    this.category = "";
+    this.facebook = '';
+    this.instagram = '';
+    this.category = '';
   }
 }
 
