@@ -10,9 +10,14 @@
   overflow: hidden
 
 .container  
-  position: relative
-  height: calc(100vh - 75px)
+  position: absolute
+  top: 75px
+  left: 0
+  bottom: 0
+  right: -100px
+  height: calc(100% - 75px)  
   box-sizing: border-box
+  overflow-y: scroll
 
 .inner
   padding: 20px 30px 20px 30px
@@ -25,3 +30,4 @@
   .wrapper 
     left: 0
     width: 100% 
+  

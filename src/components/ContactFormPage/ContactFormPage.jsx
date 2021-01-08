@@ -7,8 +7,10 @@ export default () => {
   return (
     <>
       <Header />
-      <div className={styles.inner}>
-        <Form />
+      <div className={styles.container}>
+        <div className={styles.inner}>
+          <Form />
+        </div>
       </div>
     </>
   );

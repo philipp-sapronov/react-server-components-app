@@ -31,6 +31,16 @@
   flex-wrap: wrap;
 }
 
+form.add-form input,
+form.add-form textarea,
+form.add-form select {
+  border: 1px solid #80869a;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: 300;
+  font-family: "Montserrat", sans-serif;
+}
+
 .input-add {
   width: 100%;
   height: 30px;
@@ -47,7 +57,6 @@
 
 .flex-3 .input-add {
   width: 100%;
-  padding: 0;
 }
 
 .flex-3 .input-inner {
@@ -97,7 +106,9 @@
   flex-shrink: 0;
 }
 
-.field-name, .field-surname, .field-descript {
+.field-name,
+.field-surname,
+.field-descript {
   display: block;
   margin-bottom: 10px;
   flex-shrink: 0;
@@ -132,7 +143,8 @@ textarea {
   cursor: pointer;
 }
 
-.btn__save, .btn__cancel {
+.btn__save,
+.btn__cancel {
   width: 24%;
   min-width: 150px;
 }
@@ -154,8 +166,11 @@ textarea {
 }
 
 .save-controls-wrap {
-  width: 100%;
+  width: calc(100% - 80px);
   margin: 40px auto 0;
+  position: absolute;
+  bottom: 35px;
+  left: 40px;
 }
 
 .save-controls-inner {
@@ -164,7 +179,6 @@ textarea {
   background: #fff;
   bottom: 0;
   right: 0;
-  margin-bottom: 34px;
 }
 
 .save-controls__btns:before {

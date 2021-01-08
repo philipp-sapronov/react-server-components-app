@@ -41,6 +41,7 @@ export default function Contact(props) {
                   className="input-add input-descript"
                   value={values.description}
                   name={ContactField.description}
+                  rows={2}
                 />
               </div>
             </div>
