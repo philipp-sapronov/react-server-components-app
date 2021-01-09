@@ -2,7 +2,7 @@
 
 ## What is this?
 
-This is a demo app built with Server Components, an experimental React feature. 
+This is a demo app built with Server Components, an experimental React feature.
 
 ### Requirements
 
@@ -27,13 +27,15 @@ $ docker-compose up
 ![react logo](/readme/react.png)
 ![nest logo](/readme/nest.png)
 
+<kbd>
 <img src="/readme/screenshot-home.jpg" alt="alt text" width="300px" height="165px">
+</kbd>
 <img src="/readme/screenshot-item.jpg" alt="alt text" width="300px" height="165px">
 <img src="/readme/screenshot-form.jpg" alt="alt text" width="300px" height="165px">
 
-
-* React + React Server Components
-* Nest js
+- React + React Server Components
+- Nest js
 
 #### License
+
 This demo is MIT licensed.
