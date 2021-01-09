@@ -13,9 +13,6 @@ function App({ url }) {
     <Layout>
       <Router url={url}>
         <Switch>
-          <Route path={'/home'} exact={true}>
-            <CategoryPage />
-          </Route>
           <Route path={'/categories/:id'} exact={true}>
             <CategoryPage />
           </Route>

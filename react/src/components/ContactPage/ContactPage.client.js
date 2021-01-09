@@ -13,9 +13,9 @@ const avatarStyles = {
 function ContactPage() {
   // const { id } = useParams();
   const id = '123';
-  const contact = useContact(id);
+  // const contact = useContact(id);
 
-  if (!contact) return null;
+  return null;
 
   return (
     <div>

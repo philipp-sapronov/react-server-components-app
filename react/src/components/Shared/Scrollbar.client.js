@@ -12,6 +12,7 @@ export default class Scrollbar extends Component {
 
     this._getScrollThumbPosition = this._getScrollThumbPosition.bind(this);
     this._moveScrollThumb = this._moveScrollThumb.bind(this);
+    this._onMouseMove = this._onMouseMove.bind(this);
     this._offMouseMove = this._offMouseMove.bind(this);
     this._onMouseDown = this._onMouseDown.bind(this);
     this._onResize = this._onResize.bind(this);

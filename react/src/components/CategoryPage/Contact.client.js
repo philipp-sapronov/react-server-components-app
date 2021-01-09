@@ -1,5 +1,5 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import DotsMenu from '../../../components/Shared/DotsMenu/DotsMenu.client';
 import Avatar from '../Shared/Avatar.client';
 
@@ -17,8 +17,7 @@ const Contact = (props) => {
   return (
     <div key={contact.id} className="contact__grid-item contact__item">
       <div className="contact__inner">
-        <a>
-          {/*<NavLink exact to={`/contacts/${contact.id}`}>*/}
+        <Link exact to={`/contacts/${contact.id}`}>
           <Avatar
             classes={{
               wrapper: 'contact__avatar-wrap',
@@ -33,8 +32,7 @@ const Contact = (props) => {
             </p>
             <p className="contact__description">{contact.phone}</p>
           </div>
-          {/*</NavLink>*/}
-        </a>
+        </Link>
 
         {/*<ContactBtn triggerId={contact[constants.id]} module="contact" />*/}
       </div>

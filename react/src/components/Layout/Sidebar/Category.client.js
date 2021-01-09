@@ -1,16 +1,16 @@
 import React from 'react';
 // import DotsMenu from '../DotsMenu';
 import constants from '../../../constants/categorySchema';
-// import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 export default function Category(props) {
   if (!props.category) return null;
 
   return (
-    <a
+    <NavLink
       exact
-      // activeClassName="active"
-      // className="main-menu__list-item menu-item"
+      activeClassName="active"
+      className="main-menu__list-item menu-item"
       to={`/categories/${props.category[constants.ID]}`}>
       <div className="wrap">
         <div className="sidebar-category__item">
@@ -20,6 +20,6 @@ export default function Category(props) {
         </div>
         <div className="sidebar-category__hover" />
       </div>
-    </a>
+    </NavLink>
   );
 }

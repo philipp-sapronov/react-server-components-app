@@ -5,7 +5,6 @@ import Categories from './Categories.client';
 import Search from './Search.client';
 import Birthdays from './Birthdays.client';
 import AddContactBtn from './AddContactBtn.client';
-import ToggleSidebar from './ToggleSidebar.client';
 import Scrollbar from '../../Shared/Scrollbar.client';
 
 import classNames from 'classnames';
@@ -19,13 +18,13 @@ function Sidebar({ toggleSidebar }) {
   });
 
   const overlayClassName = classNames({
-    sidebar__overlay: true,
-    'is-open': true,
+    sidebar__overlay: false,
+    'is-open': false,
   });
 
   return (
     <Fragment>
-      <div className={overlayClassName} onClick={toggleSidebar} />
+      {/*<div className={overlayClassName} onClick={toggleSidebar} />*/}
       <aside className={wrapClassName}>
         <Scrollbar
           classes={{
@@ -34,9 +33,6 @@ function Sidebar({ toggleSidebar }) {
             container: 'sidebar__container',
           }}>
           <div className="sidebar__inner">
-            <div className="sidebar__toggle-wrap">
-              <ToggleSidebar icon={'/assets/close.svg'} />
-            </div>
             <Logo />
             <AccountPanel />
             <Search />
