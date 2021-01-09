@@ -28,13 +28,13 @@ $ docker-compose up
 ![nest logo](/readme/nest.png)
 
 <kbd>
-    <img src="/readme/screenshot-home.jpg" alt="screenshot" width="200px" height="110px">
+    <img src="/readme/screenshot-home.jpg" alt="screenshot" width="110px" height="60px">
 </kbd>
 <kbd>
-    <img src="/readme/screenshot-item.jpg" alt="screenshot" width="200px" height="110px">
+    <img src="/readme/screenshot-item.jpg" alt="screenshot" width="110px" height="60px">
 </kbd>
 <kbd>
-    <img src="/readme/screenshot-form.jpg" alt="screenshot" width="200px" height="110px">
+    <img src="/readme/screenshot-form.jpg" alt="screenshot" width="110px" height="60px">
 </kbd>
 
 - React + React Server Components
