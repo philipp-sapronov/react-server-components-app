@@ -12,7 +12,7 @@
 
   &:hover {
     width: 8px;
-    & .bar {
+    & .main-scrollbar__thumb {
       opacity: 0.8;
       width: 8px;
     }
@@ -21,7 +21,7 @@
   &:hover &.active {
     opacity: 0.8;
     width: 8px;
-    & .bar {
+    & .main-scrollbar__thumb {
       width: 8px;
       opacity: 0.8;
     }

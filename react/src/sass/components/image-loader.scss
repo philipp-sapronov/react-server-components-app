@@ -28,9 +28,7 @@
 .image-loader__avatar {
   height: 100%;
   width: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  object-fit: cover;
 }
 
 .image-loader__icon {
@@ -58,11 +56,11 @@
 }
 
 .image-loader__wrap:hover {
-  & .inputIcon {
+  & .image-loader__inputIcon {
     opacity: 1;
   }
 
-  .icon {
+  .image-loader__icon {
     opacity: 0;
   }
 }

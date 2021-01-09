@@ -26,6 +26,7 @@ webpack(
     entry: [path.resolve(__dirname, '../src/index.client.js')],
     output: {
       path: path.resolve(__dirname, '../build'),
+      publicPath: '/',
       filename: 'main.js',
     },
     resolve: {
@@ -90,10 +91,10 @@ webpack(
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'bundle.css',
-        // chunkFilename: '[id].css',
       }),
       new HtmlWebpackPlugin({
         inject: true,
+        publicPath: '/',
         template: path.resolve(__dirname, '../public/index.html'),
       }),
       new ReactServerWebpackPlugin({ isServer: false }),

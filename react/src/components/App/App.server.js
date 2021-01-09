@@ -3,19 +3,18 @@ import React from 'react';
 import Switch from '../ServerRouter/switch.server';
 import Route from '../ServerRouter/route.server';
 import Router from '../ServerRouter/router.server';
-import CategoryPage from '../CategoryPage/CategoryPage.client';
-import ContactFormPage from '../ContactFormPage/ContactFormPage.client';
-import ContactPage from '../ContactPage/ContactPage.client';
-import Layout from '../Layout/Layout.client';
+import CategoryPage from '../CategoryPage/PageSuspense.server';
+import ContactPage from '../ContactPage/PageSuspense.server';
+import EditContactPage from '../ContactFormPage/PageSuspense.server';
+import AddContactPage from '../ContactFormPage/AddContactPage.client';
+
+import Layout from '../Layout/Layout.server';
 
 function App({ url }) {
   return (
     <Layout>
       <Router url={url}>
         <Switch>
-          <Route path={'/home'} exact={true}>
-            <CategoryPage />
-          </Route>
           <Route path={'/categories/:id'} exact={true}>
             <CategoryPage />
           </Route>
@@ -26,16 +25,10 @@ function App({ url }) {
             <CategoryPage />
           </Route>
           <Route path={'/add-contact'} exact={true}>
-            <ContactFormPage />
+            <AddContactPage />
           </Route>
           <Route path={'/edit-contact/:id'} exact={true}>
-            <ContactFormPage />
-          </Route>
-          <Route path={'/account/:id'} exact={true}>
-            <ContactPage />
-          </Route>
-          <Route path={'/account'} exact={true}>
-            <ContactPage />
+            <EditContactPage />
           </Route>
           <Route path={'/'}>
             <CategoryPage />

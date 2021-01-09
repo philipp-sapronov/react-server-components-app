@@ -3,14 +3,10 @@ import Form from './Form.client';
 import Header from '../Header/Header.client';
 
 export default () => {
-  useEffect(() => {
-    console.log('hallo world');
-  }, []);
-
   // contact-form-page__wrapper
   return (
     <>
-      <Header />
+      <Header title="New Contact" />
       <div className="contact-form-page__container">
         <div className="contact-form-page__inner">
           <Form />

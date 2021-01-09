@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import ImageLoader from '../Shared/ImageLoader.client';
 import { ContactField } from '../../constants/contactSchema';
 
-function Form(props) {
-  const [state, setState] = useState({});
+function Form({ data, categories = [] }) {
+  const [state, setState] = useState(data || {});
 
   const base64Convert = (file) => {
     reader.onload = (e) => {
       var binaryData = e.target.result;
       var base64Img = window.btoa(binaryData);
 
-      console.log(file, base64Img, '!!!');
       setState({ avatar: base64Img });
     };
 
@@ -96,8 +95,6 @@ function Form(props) {
     // history.goBack();
   };
 
-  const { categories = [] } = props;
-
   return (
     <div className="add-contact__form-wrap">
       <div className="add-contact__form">
@@ -110,9 +107,9 @@ function Form(props) {
                   <label className="field-add field-name">Name</label>
                   <input
                     className="input-add input-name"
-                    name={ContactField.firstname}
+                    name={ContactField.firstName}
                     type="text"
-                    value={state.firstname}
+                    value={state.firstName}
                     // required="required"
                   />
                 </div>
@@ -121,8 +118,8 @@ function Form(props) {
                   <input
                     className="input-add input-surname"
                     type="text"
-                    value={state.lastname}
-                    name={ContactField.lastname}
+                    value={state.lastName}
+                    name={ContactField.lastName}
                   />
                 </div>
               </div>
@@ -191,7 +188,7 @@ function Form(props) {
                 {(categories || []).map((category) => {
                   return (
                     <option selected={category.id === state.category}>
-                      {category.text}
+                      {category.name}
                     </option>
                   );
                 })}

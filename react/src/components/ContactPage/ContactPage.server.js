@@ -1,38 +1,49 @@
 import React from 'react';
 import Avatar from '../Shared/Avatar.client';
 import Header from '../Header/Header.client';
-import { useContact } from '../../hooks/contacts';
-// import { useParams } from 'react-router';
+import { useContact } from '../../api/contacts.server';
+import { getFirstLetter, getFullName } from '../../helpers';
+import { format } from 'date-fns';
+import { useCategories } from '../../api/categories.server';
 
 const avatarStyles = {
-  avatarWrap: 'contact-page__avatarWrap',
+  wrapper: 'contact-page__avatarWrap',
   avatar: 'contact-page__avatar',
   letters: 'contact-page__letters',
 };
 
-function ContactPage() {
-  // const { id } = useParams();
-  const id = '123';
-  const contact = useContact(id);
+const ContactPage = ({ match }) => {
+  if (!match) return null;
 
+  const contact = useContact(match.params.id);
   if (!contact) return null;
+
+  const categories = useCategories();
+
+  // TODO:
+  // server side redirect
+  // it can be <Redirect /> component
+
+  const category = Array.isArray(categories)
+    ? categories.find((it) => it.contacts.includes(contact.id))
+    : null;
 
   return (
     <div>
-      <Header title={contact.firstname + ' ' + contact.lastname} />
+      <Header title={getFullName(contact.firstName, contact.lastName)} />
       <div className="contact-page__inner">
         <Avatar
           classes={avatarStyles}
-          letter={contact.firstname.charAt(0)}
+          letter={getFirstLetter(contact.firstName)}
           src={contact.avatar}
         />
         <div className="contact-page__fieldWrap">
           <div className="contact-page__label">Name:</div>
-          <div className="contact-page__value">{contact.firstname}</div>
+          <div className="contact-page__value">{contact.firstName}</div>
         </div>
         <div className="contact-page__fieldWrap">
           <div className="contact-page__label">Surname:</div>
-          <div className="contact-page__value">{contact.lastname}</div>
+          <div className="contact-page__value">{contact.lastName}</div>
         </div>
         <div className="contact-page__fieldWrap">
           <div className="contact-page__label">Description:</div>
@@ -49,7 +60,9 @@ function ContactPage() {
         <div className="contact-page__fieldWrap">
           <div className="contact-page__label">Birthday:</div>
           <div className="contact-page__value">
-            {contact.birthday.toDateString()}
+            {contact.birthday
+              ? format(new Date(contact.birthday), 'dd MMMM yyyy')
+              : ''}
           </div>
         </div>
         <div className="contact-page__fieldWrap">
@@ -62,11 +75,13 @@ function ContactPage() {
         </div>
         <div className="contact-page__fieldWrap">
           <div className="contact-page__label">Category:</div>
-          <div className="contact-page__value">{contact.category}</div>
+          <div className="contact-page__value">
+            {category ? category.name : ''}
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default ContactPage;

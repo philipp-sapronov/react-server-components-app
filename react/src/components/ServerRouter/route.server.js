@@ -1,5 +1,5 @@
 import ClientRoute from './route.client';
-import React, { createElement as $ } from 'react';
+import React, { createElement, isValidElement } from 'react';
 import Cache from './cache';
 import { matchPath } from './matchPath';
 
@@ -17,15 +17,19 @@ export const Route = (props) => {
 
   if (!match) return null;
 
-  console.log('<<< ROUTE ' + props.path + ' RENDERED >>>');
+  console.log('ROUTE ' + props.path + ' RENDERED');
 
   // Note: Works without client route
-  // if (props.serverOnly)
+  // return children;
 
-  return props.children || null;
+  const children = isValidElement(props.children)
+    ? React.cloneElement(
+        props.children,
+        Object.assign({}, props.children.props, { match })
+      )
+    : null;
 
-  //with client route
-  return $(ClientRoute, props);
+  return createElement(ClientRoute, Object.assign({}, props), children);
 };
 
 export default Route;

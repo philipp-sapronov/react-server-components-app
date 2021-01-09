@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 
 export default function AccountPanel() {
   return (
@@ -13,14 +12,8 @@ export default function AccountPanel() {
           />
         </div>
         <div className="account-panel__name-wrap">
-          <a>
-            {/*<Link exact to={'/account'}>*/}
-            <p className="account-panel__name">User</p>
-            {/*</Link>*/}
-          </a>
-          {/* TODO: put here dotsMenu */}
-
-          <a className="account-panel__logout" to="/Login">
+          <p className="account-panel__name">User</p>
+          <a className="account-panel__logout" to="/">
             Log out
           </a>
         </div>

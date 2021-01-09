@@ -12,7 +12,8 @@ services:
     ports:
       - "8000:8000"
     restart: unless-stopped
-    command: "yarn start"
+    volumes:
+      - ./api/src:/opt/contact-book-app/src
     networks:
       - main
 
@@ -23,11 +24,11 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - ./react/notes:/opt/notes-app/notes
-      - ./react/public:/opt/notes-app/public
-      - ./react/scripts:/opt/notes-app/scripts
-      - ./react/server:/opt/notes-app/server
-      - ./react/src:/opt/notes-app/src
-      - ./react/credentials.js:/opt/notes-app/credentials.js
+      - ./react/notes:/opt/contact-book-app/notes
+      - ./react/public:/opt/contact-book-app/public
+      - ./react/scripts:/opt/contact-book-app/scripts
+      - ./react/server:/opt/contact-book-app/server
+      - ./react/src:/opt/contact-book-app/src
+      - ./react/credentials.js:/opt/contact-book-app/credentials.js
     networks:
       - main
