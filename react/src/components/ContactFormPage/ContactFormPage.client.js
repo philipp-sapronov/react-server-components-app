@@ -1,19 +1,20 @@
 import React, { useEffect } from 'react';
-import Form from './Form/Form.client';
+import Form from './Form.client';
 import Header from '../Header/Header.client';
-// import styles from "./contact-form-page.module.sass";
-
-const styles = {};
 
 export default () => {
   useEffect(() => {
     console.log('hallo world');
   }, []);
+
+  // contact-form-page__wrapper
   return (
     <>
       <Header />
-      <div className={styles.container}>
-        <div className={styles.inner}>{<Form />}</div>
+      <div className="contact-form-page__container">
+        <div className="contact-form-page__inner">
+          <Form />
+        </div>
       </div>
     </>
   );

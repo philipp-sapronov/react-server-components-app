@@ -14,10 +14,11 @@ const rimraf = require('rimraf');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactServerWebpackPlugin = require('react-server-dom-webpack/plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 rimraf.sync(path.resolve(__dirname, '../build'));
+
 webpack(
   {
     mode: isProduction ? 'production' : 'development',
@@ -34,11 +35,28 @@ webpack(
       rules: [
         {
           test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: '/public/assets/css',
+              },
+            },
+            'css-loader',
+          ],
         },
         {
-          test: /\.s[ac]ss$/i,
-          use: ['style-loader', 'css-loader', 'sass-loader'],
+          test: /\.(sass|scss)$/i,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: '/public/assets/css',
+              },
+            },
+            'css-loader',
+            'sass-loader',
+          ],
         },
         {
           test: /\.(js|jsx)$/,
@@ -70,7 +88,10 @@ webpack(
       ],
     },
     plugins: [
-      // new ExtractTextPlugin('bundle.min.css'),
+      new MiniCssExtractPlugin({
+        filename: 'bundle.css',
+        // chunkFilename: '[id].css',
+      }),
       new HtmlWebpackPlugin({
         inject: true,
         template: path.resolve(__dirname, '../public/index.html'),

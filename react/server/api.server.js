@@ -3,13 +3,6 @@ require('react-server-dom-webpack/node-register')();
 require('@babel/register')({
   ignore: [/[\\\/](build|server|node_modules)[\\\/]/],
   presets: [['react-app', { runtime: 'automatic' }]],
-  // plugins: [['@babel/plugin-transform-modules-commonjs']],
-
-  // ignore: [/[\\\/](build|server|node_modules)[\\\/]/],
-  // only: [/[\\\/](src)[\\\/]/],
-
-  // presets: [['@babel/preset-env'], ['@babel/preset-react']],
-
   plugins: [
     [
       '@babel/plugin-transform-runtime',

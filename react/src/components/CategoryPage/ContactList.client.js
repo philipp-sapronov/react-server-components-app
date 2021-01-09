@@ -1,9 +1,6 @@
 import React from 'react';
-// import styles from "./contacts.module.sass";
-import Contact from '../Contact/Contact.client';
-import { useContacts } from '../../../hooks/contacts';
-
-const styles = {};
+import Contact from './Contact.client';
+import { useContacts } from '../../hooks/contacts';
 
 export const ContactList = () => {
   const items = useContacts();
@@ -31,8 +28,8 @@ export const ContactList = () => {
 
     return (
       <div className="wrap">
-        <p className={styles.letter}>{letter}</p>
-        <div className={styles.container}>
+        <p className="contact-list__letter">{letter}</p>
+        <div className="contact-list__container">
           {block.map((contact) => (
             <Contact key={contact.id} contact={contact} />
           ))}

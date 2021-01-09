@@ -1,0 +1,68 @@
+.image-loader__input {
+  opacity: 0;
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  z-index: -1;
+}
+
+.image-loader__wrap {
+  display: flex;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  height: 120px;
+  width: 120px;
+  min-height: 120px;
+  min-width: 120px;
+  overflow: hidden;
+  margin-right: 20px;
+  border-radius: 150px;
+  background-color: #10b1df;
+}
+
+.image-loader__wrap:hover {
+  background-color: lighten(#10b1df, 5%);
+}
+.image-loader__avatar {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.image-loader__icon {
+  width: 30%;
+  height: 30%;
+  margin: 0 auto;
+  fill: #fff;
+  opacity: 1;
+}
+
+.image-loader__label {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.image-loader__inputIcon {
+  opacity: 0;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transition: opacity 0.15s ease-out;
+  fill: #fff;
+}
+
+.image-loader__wrap:hover {
+  & .inputIcon {
+    opacity: 1;
+  }
+
+  .icon {
+    opacity: 0;
+  }
+}

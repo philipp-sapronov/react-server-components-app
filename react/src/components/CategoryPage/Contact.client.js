@@ -1,46 +1,37 @@
 import React from 'react';
-// import clsx from 'classnames';
 // import { NavLink } from 'react-router-dom';
-// import styles from "./contact.module.sass";
 // import DotsMenu from '../../../components/Shared/DotsMenu/DotsMenu.client';
-import Avatar from '../../../components/Shared/Avatar/Avatar.client';
-
-const styles = {};
+import Avatar from '../../components/Shared/Avatar/Avatar.client';
 
 // const { ContactBtn } = DotsMenu;
-const avatarStyles = { avatarWrap: styles.avatarWrap, letters: styles.letters };
 
 function getFullName(name, surname) {
   return `${name} ${surname}`;
 }
 
-const clsx = () => ({});
 const Contact = (props) => {
   const { contact } = props;
 
   if (!contact) return null;
 
-  const itemClassNames = clsx({
-    // [styles.gridItem]: true,
-    // [styles.item]: true,
-  });
-
-
   return (
-    <div key={contact.id} className={itemClassNames}>
-      <div className={styles.inner}>
+    <div key={contact.id} className="contact__grid-item contact__item">
+      <div className="contact__inner">
         <a>
           {/*<NavLink exact to={`/contacts/${contact.id}`}>*/}
           <Avatar
+            classes={{
+              wrapper: 'contact__avatar-wrap',
+              letters: 'contact__letters',
+            }}
             src={contact.avatar}
             letter={contact.firstname.charAt(0)}
-            styles={avatarStyles}
           />
-          <div className={styles.nameWrap}>
-            <p className={styles.name}>
+          <div className="contact__name-wrap">
+            <p className="contact__name">
               {getFullName(contact.firstname, contact.lastname)}
             </p>
-            <p className={styles.description}>{contact.phone}</p>
+            <p className="contact__description">{contact.phone}</p>
           </div>
           {/*</NavLink>*/}
         </a>

@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-// import styles from './form.module.sass';
-// import './form.css';
-// import "./form.module.sass";
-import ImageLoader from '../../Shared/ImageLoader/ImageLoader.client';
-import { ContactField } from '../../../constants/contactSchema';
+import ImageLoader from '../Shared/ImageLoader/ImageLoader.client';
+import { ContactField } from '../../constants/contactSchema';
 
 function Form(props) {
   const [state, setState] = useState({});

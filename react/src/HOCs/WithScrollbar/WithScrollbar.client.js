@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+// import styles from "./category-page.module.sass";
+// import scrollStyles from "./scrollbar.module.sass";
 const __bindAll = (obj, ...args) => {
   args.forEach((item) => {
     obj[item.name] = obj[item.name].bind(obj);
@@ -34,11 +35,12 @@ export default class Scrollbar extends Component {
   }
 
   componentDidUpdate() {
-    setTimeout(this._windowInit, 100);
+    setTimeout(this._windowInit, 1000);
     console.log('DID_UPDATE');
   }
+
   componentDidMount() {
-    setTimeout(this._windowInit, 100);
+    setTimeout(this._windowInit, 1000);
     window.addEventListener('resize', this._windowInit);
   }
 
@@ -124,18 +126,18 @@ export default class Scrollbar extends Component {
   render() {
     return (
       <div>
-        <div className={scrollStyles.wrap} ref={this._scrollBar.current}>
+        <div className="scrollbar__wrap" ref={this._scrollBar}>
           <div
-            className={scrollStyles.bar}
-            ref={this._scrollThumb.current}
+            className="scrollbar__bar"
+            ref={this._scrollThumb}
             onMouseDown={this._onMouseDown}
           />
         </div>
         <div
-          className={styles.container}
-          ref={this._scrollContainer.current}
+          className="category-page__container"
+          ref={this._scrollContainer}
           onScroll={this._onScroll}>
-          <div className={styles.inner}>{this.props.children}</div>
+          <div className="category-page__inner">{this.props.children}</div>
         </div>
       </div>
     );

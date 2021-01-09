@@ -1,22 +1,13 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-// import Layout from '../layout/Layout.client';
-
-import CategoryPage from '../components/CategoryPage/CategoryPage.client';
-// import ContactPage from '../components/ContactPage/ContactPage.client';
-import ContactFormPage from '../components/ContactFormPage/ContactFormPage.client';
 import React from 'react';
+import CategoryPage from '../components/CategoryPage/CategoryPage.client';
+import ContactFormPage from '../components/ContactFormPage/ContactFormPage.client';
 
 import Switch from './ServerRouter/switch.server';
 import Route from './ServerRouter/route.server';
 import Router from './ServerRouter/router.server';
 
+// import ContactPage from '../components/ContactPage/ContactPage.client';
+// import Layout from '../layout/Layout.client';
 function App({ url }) {
   return (
     <Router url={url}>

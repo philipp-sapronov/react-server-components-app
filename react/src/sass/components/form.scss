@@ -1,3 +1,25 @@
+.form__avatarWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 120px;
+  min-height: 120px;
+  min-width: 120px;
+  overflow: hidden;
+  margin-right: 20px;
+  border-radius: 150px;
+  border: 2px solid #6767c8;
+  background-color: #6767c8;
+  transition: all 0.4s ease-out;
+}
+
+.form__avatar {
+  color: white;
+  font-size: 26px;
+  font-weight: 400;
+}
+
 .add-contact__form-wrap {
   width: 95%;
   margin: 40px auto 60px auto;
@@ -197,3 +219,4 @@ textarea {
   justify-content: flex-end;
   align-items: center;
 }
+

@@ -1,0 +1,73 @@
+.contact__item {
+  margin: 15px 15px;
+  min-width: 200px;
+}
+
+.contact__inner {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+
+  &:hover .avatarWrap {
+    background-color: #7580a9;
+  }
+}
+
+.contact__name-wrap {
+  margin-left: 60px;
+  padding-top: 10px;
+}
+
+.contact__name {
+  color: #000;
+  flex-grow: 1;
+  font-size: 1.4rem;
+  font-weight: 300;
+  overflow: hidden;
+  word-wrap: nowrap;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.contact__description {
+  display: inline-block;
+  color: #555;
+  cursor: pointer;
+  margin-top: 6px;
+  font-size: 1.2rem;
+}
+
+.contact__avatar-wrap {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: #5b6690;
+  transition: all 0.3s ease;
+}
+
+.contact__letters {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.contact__grid-item {
+  width: calc((100% / 12 * 3) - 3rem);
+
+  @media screen and (max-width: 1280px) {
+    width: calc((100% / 12 * 4) - 3rem);
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: calc((100% / 12 * 6) - 3rem);
+  }
+
+  @media screen and (max-width: 420px) {
+    width: calc((100% / 12 * 12) - 3rem);
+  }
+}
