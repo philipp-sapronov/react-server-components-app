@@ -2,7 +2,15 @@
 
 ## What is this?
 
+![react logo](/readme/react.png)
+![nest logo](/readme/nest.png)
+
 This is a demo app built with Server Components, an experimental React feature.
+
+### Built With
+
+- React + React Server Components
+- Nest js
 
 ## Screenshots
 
@@ -16,7 +24,7 @@ This is a demo app built with Server Components, an experimental React feature.
     <img src="/readme/screenshot-form.jpg" alt="screenshot" width="110px" height="60px">
 </kbd>
 
-### Requirements
+### Development
 
 ![docker logo](/readme/docker.png)
 ![docker-compose logo](/readme/docker-compose.png)
@@ -26,21 +34,13 @@ This is a demo app built with Server Components, an experimental React feature.
 2. Docker Compose
 3. Node js
 
-### Development
+### Available scripts
 
 ```bash
 
 $ docker-compose up
 
 ```
-
-### Built With
-
-![react logo](/readme/react.png)
-![nest logo](/readme/nest.png)
-
-- React + React Server Components
-- Nest js
 
 #### License
 
