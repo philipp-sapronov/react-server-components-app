@@ -1,0 +1,16 @@
+.contact-list__letter {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1c8adb;
+}
+
+.contact-list__container {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: flex-start;
+  margin: 0 -15px;
+  overflow: hidden;
+  padding: 15px 0;
+}

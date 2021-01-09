@@ -1,28 +1,29 @@
 'use strict';
-// Don't keep credentials in the source tree in a real app!
-// const {Pool} = require('pg');
-// const pool = new Pool(require('../credentials'));
-
 require('react-server-dom-webpack/node-register')();
-// babel
-
 require('@babel/register')({
   ignore: [/[\\\/](build|server|node_modules)[\\\/]/],
-  // only: [/[\\\/](src)[\\\/]/],
-
-  presets: [
-    ['@babel/preset-env', { loose: true }],
-    ['react-app', { runtime: 'automatic' }],
-  ],
+  presets: [['react-app', { runtime: 'automatic' }]],
   plugins: [
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        helpers: false,
+        regenerator: true,
+        absoluteRuntime: false,
+        corejs: false,
+        useESModules: false,
+      },
+    ],
+    ['@babel/plugin-transform-classes', { spec: true }],
     ['@babel/plugin-transform-proto-to-assign'],
     ['@babel/plugin-transform-modules-commonjs'],
+    ['@babel/plugin-proposal-object-rest-spread'],
   ],
 });
 
 const express = require('express');
 const compress = require('compression');
-const ReactApp = require('../src/App.server').default;
+const ReactApp = require('../src/components/App/App.server').default;
 const renderReact = require('./renderReact.server');
 const renderHtml = require('./renderHtml.server');
 const { tryCatch, handleError } = require('./helpers');
@@ -52,7 +53,7 @@ app.post('*', async (req, res, next) => {
 
 app.on('error', handleError);
 
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   console.error(err);
   res.status(500).send('Something broke!');
   next(err);

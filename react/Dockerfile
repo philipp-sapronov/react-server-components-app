@@ -2,11 +2,11 @@ FROM node:14.15.3
 
 WORKDIR /opt/notes-app
 
-COPY package.json ./
+COPY package.json package-lock.json ./
 
-RUN yarn install
+RUN npm install
 
 COPY . .
 
-ENTRYPOINT [ "yarn", "run" ]
+ENTRYPOINT [ "npm", "run" ]
 CMD [ "start" ]

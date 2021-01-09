@@ -1,0 +1,222 @@
+.form__avatarWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 120px;
+  min-height: 120px;
+  min-width: 120px;
+  overflow: hidden;
+  margin-right: 20px;
+  border-radius: 150px;
+  border: 2px solid #6767c8;
+  background-color: #6767c8;
+  transition: all 0.4s ease-out;
+}
+
+.form__avatar {
+  color: white;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.add-contact__form-wrap {
+  width: 95%;
+  margin: 40px auto 60px auto;
+}
+
+.add-contact__foto-wrap {
+  height: 120px;
+  width: 120px;
+  overflow: hidden;
+  border-radius: 150px;
+  border: 2px solid #555;
+  margin-left: auto;
+}
+
+.add-contact__fullname-wrap {
+  max-width: 100%;
+  width: 100%;
+}
+
+.add-contact__foto {
+  height: 120px;
+  width: 120px;
+}
+
+.flex-1 {
+  display: flex;
+}
+
+.flex-2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+form.add-form input,
+form.add-form textarea,
+form.add-form select {
+  border: 1px solid #80869a;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: 300;
+  font-family: "Montserrat", sans-serif;
+}
+
+.input-add {
+  width: 100%;
+  height: 30px;
+  font-size: 1.4rem;
+  color: #555;
+  box-sizing: border-box;
+}
+
+.foto-wrap {
+  width: 120px;
+  flex-shrink: 0;
+  padding: 0 25px 0 0;
+}
+
+.flex-3 .input-add {
+  width: 100%;
+}
+
+.flex-3 .input-inner {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.flex-3 label {
+  display: block;
+  text-align: right;
+  width: 120px;
+  padding: 0 25px 0 0;
+  flex-shrink: 0;
+}
+
+.input-info-inner {
+  display: flex;
+  margin-top: 30px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.input-info-inner label {
+  line-height: 28px;
+  flex-shrink: 0;
+}
+
+.input-surname-inner {
+  width: 50%;
+}
+
+.input-name-inner {
+  width: calc(50% - 25px);
+  margin-right: 25px;
+}
+
+.input-descript-inner {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.field-descript {
+  margin-top: 20px;
+  flex-shrink: 0;
+}
+
+.field-name,
+.field-surname,
+.field-descript {
+  display: block;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.input-descript {
+  height: 50px;
+}
+
+.input-info {
+  height: 100px;
+}
+
+label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+textarea {
+  box-sizing: border-box;
+  resize: none;
+}
+
+.btn {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn__save,
+.btn__cancel {
+  width: 24%;
+  min-width: 150px;
+}
+
+.btn__save {
+  margin-right: 20px;
+}
+
+.btn--theme-f {
+  background: #10b1df;
+  border: 2px solid #10b1df;
+  color: #fff;
+}
+
+.btn--theme-e {
+  background: #fff;
+  border: 2px solid #10b1df;
+  color: #10b1df;
+}
+
+.save-controls-wrap {
+  width: calc(100% - 80px);
+  margin: 40px auto 0;
+  position: absolute;
+  bottom: 35px;
+  left: 40px;
+}
+
+.save-controls-inner {
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  bottom: 0;
+  right: 0;
+}
+
+.save-controls__btns:before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: #9699a5;
+  flex-grow: 1;
+  margin-right: 20px;
+  box-sizing: border-box;
+}
+
+.save-controls__btns {
+  height: 45px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+

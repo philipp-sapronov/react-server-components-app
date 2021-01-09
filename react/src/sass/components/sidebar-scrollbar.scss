@@ -1,0 +1,49 @@
+.sidebar-scrollbar__bar {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  background-color: rgb(79, 75, 105);
+  /* height: 100%; */
+  width: 5px;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-scrollbar__thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(101, 104, 136);
+  min-width: 5px;
+  /* min-height: 10px; */
+  opacity: 0.5;
+  /* height: 20px; */
+  transition: opacity 0.1s ease, transform 0.3s ease-out;
+  z-index: 2;
+  /* border-radius: 3px; */
+}
+
+.sidebar-scrollbar__thumb:hover {
+  opacity: 1;
+}
+
+.sidebar-scrollbar__bar:hover {
+  width: 8px;
+}
+
+.sidebar-scrollbar__bar:hover .sidebar-scrollbar__thumb {
+  opacity: 0.8;
+  width: 8px;
+}
+
+.sidebar-scrollbar__bar.active {
+  opacity: 0.8;
+  width: 8px;
+}
+
+.sidebar-scrollbar__bar.active .sidebar-scrollbar__thumb {
+  width: 8px;
+  opacity: 0.8;
+}

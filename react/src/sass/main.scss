@@ -1,0 +1,28 @@
+@import 'reset';
+
+// -- LAYOUT
+@import 'components/layout';
+@import 'components/logo';
+@import 'components/sidebar';
+@import 'components/sidebar-category';
+@import 'components/toggleSidebar';
+@import 'components/accountPanel';
+@import 'components/birthdays';
+@import 'components/sidebar-scrollbar';
+@import 'components/addContactBtn';
+@import 'components/search';
+
+// --COMMON
+@import 'components/dots-menu';
+@import 'components/avatar';
+@import 'components/image-loader';
+
+// PAGES
+@import 'components/contact-page';
+@import 'components/contact-list';
+@import 'components/contact';
+@import 'components/header';
+@import 'components/category-page';
+@import 'components/contact-form-page';
+@import 'components/form';
+@import 'components/main-scrollbar';
