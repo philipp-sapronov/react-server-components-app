@@ -1,5 +1,3 @@
-const Switch = ({children}) => {
-  return children;
-};
+import { Switch } from 'react-router';
 
 export default Switch;

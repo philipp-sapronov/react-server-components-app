@@ -1,7 +1,7 @@
 const id = "ID";
 const avatar = "avatar";
-const firstname = "firstname";
-const lastname = "lastname";
+const firstName = "firstName";
+const lastName = "lastName";
 const description = "description";
 const phone = "phone";
 const email = "email";
@@ -13,8 +13,8 @@ const category = "category";
 export const ContactField = {
   id,
   avatar,
-  firstname,
-  lastname,
+  firstName,
+  lastName,
   description,
   phone,
   email,

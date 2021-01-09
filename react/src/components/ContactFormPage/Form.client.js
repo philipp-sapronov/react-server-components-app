@@ -110,9 +110,9 @@ function Form(props) {
                   <label className="field-add field-name">Name</label>
                   <input
                     className="input-add input-name"
-                    name={ContactField.firstname}
+                    name={ContactField.firstName}
                     type="text"
-                    value={state.firstname}
+                    value={state.firstName}
                     // required="required"
                   />
                 </div>
@@ -121,8 +121,8 @@ function Form(props) {
                   <input
                     className="input-add input-surname"
                     type="text"
-                    value={state.lastname}
-                    name={ContactField.lastname}
+                    value={state.lastName}
+                    name={ContactField.lastName}
                   />
                 </div>
               </div>

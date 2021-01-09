@@ -6,7 +6,6 @@ import Cache from './cache';
 const Switch = (props) => {
   let element, match;
 
-  console.log('<<< SWITCH >>>');
   // TODO: Implement server side cache
   const context = {};
   // const location = this.props.location || context.location;
@@ -22,10 +21,13 @@ const Switch = (props) => {
   });
 
   element = match
-    ? React.cloneElement(element, { /* location, */ computedMatch: match })
+    ? React.cloneElement(
+        element,
+        Object.assign({}, element.props, {
+          computedMatch: match /* location, */,
+        })
+      )
     : null;
-
-  return element;
 
   return $(SwitchClient, props, element);
 };

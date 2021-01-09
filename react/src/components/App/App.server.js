@@ -3,10 +3,10 @@ import React from 'react';
 import Switch from '../ServerRouter/switch.server';
 import Route from '../ServerRouter/route.server';
 import Router from '../ServerRouter/router.server';
-import CategoryPage from '../CategoryPage/CategoryPage.client';
+import CategoryPage from '../CategoryPage/CategoryPage.server';
 import ContactFormPage from '../ContactFormPage/ContactFormPage.client';
-import ContactPage from '../ContactPage/ContactPage.client';
-import Layout from '../Layout/Layout.client';
+import ContactPage from '../ContactPage/PageSuspense.server';
+import Layout from '../Layout/Layout.server';
 
 function App({ url }) {
   return (
@@ -27,12 +27,6 @@ function App({ url }) {
           </Route>
           <Route path={'/edit-contact/:id'} exact={true}>
             <ContactFormPage />
-          </Route>
-          <Route path={'/account/:id'} exact={true}>
-            <ContactPage />
-          </Route>
-          <Route path={'/account'} exact={true}>
-            <ContactPage />
           </Route>
           <Route path={'/'}>
             <CategoryPage />

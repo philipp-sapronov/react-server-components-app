@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import Header from '../Header/Header.client';
-import { ContactList } from './ContactList.client';
+import { ContactList } from './ContactList.server';
 import Scrollbar from '../Shared/Scrollbar.client';
 
 const Page = () => {
@@ -15,7 +15,9 @@ const Page = () => {
           container: 'category-page__container',
         }}>
         <div className="category-page__inner">
-          <ContactList />
+          <Suspense fallback={<div>loading ...</div>}>
+            <ContactList />
+          </Suspense>
         </div>
       </Scrollbar>
     </div>
