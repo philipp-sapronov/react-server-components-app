@@ -2,15 +2,12 @@
 
 ## What is this?
 
-![react logo](/readme/react.png)
-![nest logo](/readme/nest.png)
-
-This is a demo app built with Server Components, an experimental React feature.
+##### This is a demo app built with Server Components, an experimental React feature.
 
 ### Built With
 
-- React + React Server Components
-- Nest js
+- ![react logo](/readme/react.png) React + React Server Components
+- ![nest logo](/readme/nest.png) Nest js
 
 ## Screenshots
 
