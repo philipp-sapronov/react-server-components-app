@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ImageLoader from '../Shared/ImageLoader/ImageLoader.client';
+import ImageLoader from '../Shared/ImageLoader.client';
 import { ContactField } from '../../constants/contactSchema';
 
 function Form(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from '../Shared/Avatar/Avatar.client';
+import Avatar from '../Shared/Avatar.client';
 import Header from '../Header/Header.client';
 import { useContact } from '../../hooks/contacts';
 // import { useParams } from 'react-router';

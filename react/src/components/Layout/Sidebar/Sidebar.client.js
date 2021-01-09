@@ -1,17 +1,16 @@
 import React, { Fragment } from 'react';
-// import styles from './sidebar.module.sass';
-import Logo from '../Logo/Logo.client';
-import AccountPanel from '../AccountPanel/AccountPanel.client';
-import Categories from '../Categories/Categories.client';
-import Search from '../Search/Search.client';
-import Birthdays from '../Birthdays/Birthdays.client';
-import AddContactBtn from '../AddContactBtn/AddContactBtn.client';
-import ToggleSidebar from './../../ToggleSidebar/ToggleSidebar.client';
-import Scrollbar from '../../../HOCs/WithScrollbar/WithScrollbar.client';
+import Logo from './Logo.client';
+import AccountPanel from './AccountPanel.client';
+import Categories from './Categories.client';
+import Search from './Search.client';
+import Birthdays from './Birthdays.client';
+import AddContactBtn from './AddContactBtn.client';
+import ToggleSidebar from './ToggleSidebar.client';
+import Scrollbar from '../../Shared/Scrollbar.client';
 
 import classNames from 'classnames';
 
-function Sidebar(props) {
+function Sidebar({ toggleSidebar }) {
   // const { scrollThumb, scrollBar, scrollContainer, isSidebarOpen } = props;
 
   const wrapClassName = classNames({
@@ -26,7 +25,7 @@ function Sidebar(props) {
 
   return (
     <Fragment>
-      <div className={overlayClassName} onClick={props.toggleSidebar} />
+      <div className={overlayClassName} onClick={toggleSidebar} />
       <aside className={wrapClassName}>
         <Scrollbar
           classes={{

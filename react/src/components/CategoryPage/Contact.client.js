@@ -1,7 +1,7 @@
 import React from 'react';
 // import { NavLink } from 'react-router-dom';
 // import DotsMenu from '../../../components/Shared/DotsMenu/DotsMenu.client';
-import Avatar from '../../components/Shared/Avatar/Avatar.client';
+import Avatar from '../Shared/Avatar.client';
 
 // const { ContactBtn } = DotsMenu;
 

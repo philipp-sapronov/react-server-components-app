@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from './Sidebar/Sidebar/Sidebar.client';
+import Sidebar from './Sidebar/Sidebar.client';
 // import ContextMenu from "../../modals/ContextMenu";
 
 const Layout = ({ children }) => {

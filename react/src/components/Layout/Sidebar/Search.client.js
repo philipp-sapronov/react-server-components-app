@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-// import styles from './search.module.sass';
 import { useHistory } from 'react-router';
-const styles = {};
 
 function validation() {}
 

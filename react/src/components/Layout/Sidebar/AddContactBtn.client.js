@@ -1,8 +1,5 @@
 import React from 'react';
-// import styles from './addContactBtn.module.sass';
 import { useHistory } from 'react-router';
-
-const styles = {};
 
 const AddContactBtn = () => {
   const history = useHistory();
@@ -12,12 +9,12 @@ const AddContactBtn = () => {
   };
 
   return (
-    <div className={styles.wrap}>
-      <button onClick={handleCLick} className={styles.btn}>
-        <div className={styles.iconWrap}>
+    <div className="add-contact-btn__wrap">
+      <button onClick={handleCLick} className="add-contact-btn">
+        <div className="add-contact-btn__icon-wrap">
           <img src="/assets/add-btn.svg" alt="" />
         </div>
-        <p className={styles.text}>New contact</p>
+        New contact
       </button>
     </div>
   );

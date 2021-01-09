@@ -1,9 +1,9 @@
 import React from 'react';
 // import styles from './header.module.sass';
-import ToggleSidebar from '../../layout/ToggleSidebar/ToggleSidebar.client';
+import ToggleSidebar from '../Layout/Sidebar/ToggleSidebar.client';
 // FIXME: image import
 // import { ReactComponent as Icon } from "../../layout/ToggleSidebar/images/burger.svg";
-import DotsMenu from '../../components/Shared/DotsMenu/DotsMenu.client';
+import DotsMenu from '../Shared/DotsMenu.client';
 
 export default function Component({ title = 'Header' }) {
   return (

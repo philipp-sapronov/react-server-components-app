@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Error({ error }) {
+export default function Error({ error }) {
   return (
     <div>
       <h1>Application Error</h1>

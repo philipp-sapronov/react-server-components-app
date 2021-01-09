@@ -1,13 +1,12 @@
 import React from 'react';
-import CategoryPage from '../components/CategoryPage/CategoryPage.client';
-import ContactFormPage from '../components/ContactFormPage/ContactFormPage.client';
 
-import Switch from './ServerRouter/switch.server';
-import Route from './ServerRouter/route.server';
-import Router from './ServerRouter/router.server';
-
-import ContactPage from '../components/ContactPage/ContactPage.client';
-import Layout from '../layout/Layout.client';
+import Switch from '../ServerRouter/switch.server';
+import Route from '../ServerRouter/route.server';
+import Router from '../ServerRouter/router.server';
+import CategoryPage from '../CategoryPage/CategoryPage.client';
+import ContactFormPage from '../ContactFormPage/ContactFormPage.client';
+import ContactPage from '../ContactPage/ContactPage.client';
+import Layout from '../Layout/Layout.client';
 
 function App({ url }) {
   return (

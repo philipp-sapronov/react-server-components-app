@@ -1,11 +1,8 @@
 import React, { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import Slot from './slot.client';
+import Slot from './Slot.client';
+import Error from './Error';
 import { BrowserRouter } from 'react-router-dom';
-import { Error } from './Error';
-import '../sass/main.scss';
-
-// __webpack import './assets/css/reset.css';
 
 export default function Root({ initialCache }) {
   return (

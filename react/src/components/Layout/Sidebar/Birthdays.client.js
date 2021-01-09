@@ -1,7 +1,5 @@
 import React from 'react';
 import Birthday from './Birthday.client';
-// import styles from "./birthdays.module.sass";
-const styles = {};
 
 export default function Component(props) {
   return (

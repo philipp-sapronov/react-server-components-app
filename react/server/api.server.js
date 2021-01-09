@@ -23,7 +23,7 @@ require('@babel/register')({
 
 const express = require('express');
 const compress = require('compression');
-const ReactApp = require('../src/App/App.server').default;
+const ReactApp = require('../src/components/App/App.server').default;
 const renderReact = require('./renderReact.server');
 const renderHtml = require('./renderHtml.server');
 const { tryCatch, handleError } = require('./helpers');
