@@ -2,21 +2,35 @@
 require('react-server-dom-webpack/node-register')();
 require('@babel/register')({
   ignore: [/[\\\/](build|server|node_modules)[\\\/]/],
+  presets: [['react-app', { runtime: 'automatic' }]],
+  // plugins: [['@babel/plugin-transform-modules-commonjs']],
+
+  // ignore: [/[\\\/](build|server|node_modules)[\\\/]/],
   // only: [/[\\\/](src)[\\\/]/],
 
-  presets: [
-    ['@babel/preset-env', { loose: true }],
-    ['react-app', { runtime: 'automatic' }],
-  ],
+  // presets: [['@babel/preset-env'], ['@babel/preset-react']],
+
   plugins: [
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        helpers: false,
+        regenerator: true,
+        absoluteRuntime: false,
+        corejs: false,
+        useESModules: false,
+      },
+    ],
+    ['@babel/plugin-transform-classes', { spec: true }],
     ['@babel/plugin-transform-proto-to-assign'],
     ['@babel/plugin-transform-modules-commonjs'],
+    ['@babel/plugin-proposal-object-rest-spread'],
   ],
 });
 
 const express = require('express');
 const compress = require('compression');
-const ReactApp = require('../src/App.server').default;
+const ReactApp = require('../src/App/App.server').default;
 const renderReact = require('./renderReact.server');
 const renderHtml = require('./renderHtml.server');
 const { tryCatch, handleError } = require('./helpers');
@@ -46,7 +60,7 @@ app.post('*', async (req, res, next) => {
 
 app.on('error', handleError);
 
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   console.error(err);
   res.status(500).send('Something broke!');
   next(err);

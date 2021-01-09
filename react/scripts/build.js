@@ -10,6 +10,7 @@
 
 const path = require('path');
 const rimraf = require('rimraf');
+
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactServerWebpackPlugin = require('react-server-dom-webpack/plugin');
@@ -41,8 +42,30 @@ webpack(
         },
         {
           test: /\.(js|jsx)$/,
-          use: 'babel-loader',
           exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['@babel/preset-env'],
+                ['@babel/preset-react'], // ['react-app', { runtime: 'automatic' }],
+              ],
+              plugins: [
+                [
+                  '@babel/plugin-transform-runtime',
+                  {
+                    helpers: false,
+                    regenerator: true,
+                  },
+                ],
+                ['@babel/plugin-proposal-class-properties'],
+                ['@babel/plugin-transform-classes', { spec: true }],
+                ['@babel/plugin-transform-proto-to-assign'],
+                ['@babel/plugin-transform-modules-commonjs'],
+                ['@babel/plugin-proposal-object-rest-spread'],
+              ],
+            },
+          },
         },
       ],
     },
