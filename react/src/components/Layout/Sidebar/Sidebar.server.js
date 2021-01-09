@@ -19,8 +19,6 @@ function Sidebar() {
     <aside className={wrapClassName}>
       <Scrollbar
         classes={{
-          thumb: 'sidebar-scrollbar__thumb',
-          bar: 'sidebar-scrollbar__bar',
           container: 'sidebar__container',
         }}>
         <div className="sidebar__inner">

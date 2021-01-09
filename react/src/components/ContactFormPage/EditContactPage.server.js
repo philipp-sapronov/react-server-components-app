@@ -1,21 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Form from './Form.client';
 import Header from '../Header/Header.client';
 import { useContact } from '../../api/contacts.server';
 import { getFullName } from '../../helpers';
 import { useCategories } from '../../api/categories.server';
+import Redirect from '../ServerRouter/redirect.client';
 
 export default ({ match }) => {
   if (!match) return null;
 
   const contact = useContact(match.params.id);
   const categories = useCategories();
-  if (!contact) return null;
 
-  // TODO:
-  // server side redirect
-  // it can be <Redirect /> component
-  // contact-form-page__wrapper
+  if (!contact) return <Redirect to={'/'} />;
 
   return (
     <>

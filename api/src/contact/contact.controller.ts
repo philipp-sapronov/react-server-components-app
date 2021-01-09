@@ -23,24 +23,29 @@ export class ContactController {
   @Get('/contact/:id')
   getContact(@Param() params: Params) {
     const { id } = params;
-    return this.contactService.findById(id);
+    const item = this.contactService.findById(id);
+    return { data: item || null };
   }
 
   @Get('/contacts')
   getContacts() {
-    return this.contactService.findAll() || [];
+    const items = this.contactService.findAll() || [];
+    return { data: items || null };
   }
 
   @Get('/contacts/:id')
   getCategoryContacts(@Param() params: Params) {
+    console.log(' \n\n <<<< >>>> \n\n')
     const contacts = this.contactService.findAll();
     const category = this.categoryService.findById(params.id);
-    return contacts.filter((it) => category?.contacts?.includes(it.id));
+    const items = contacts.filter((it) => category?.contacts?.includes(it.id));
+    return { data: items || [] };
   }
 
   @Get('/contacts/search')
   searchContacts(@Query() query: QueryPrams) {
-    return this.contactService.findBy(query);
+    const items = this.contactService.findBy(query);
+    return { data: items || null };
   }
 
   @Get('/birthdays/:count')
@@ -51,13 +56,15 @@ export class ContactController {
 
     const items = this.contactService.findAll();
 
-    return items
+    const sortItems = items
       ?.sort((a, b) => {
         if (!a.birthday || !b.birthday) return -1;
         if (a.birthday > b.birthday) return 1;
         else return -1;
       })
       ?.slice(0, count);
+
+    return { data: sortItems || null };
   }
 
   @Post('/contact/add/:id')

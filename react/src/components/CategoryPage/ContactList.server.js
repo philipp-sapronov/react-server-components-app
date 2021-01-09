@@ -10,11 +10,11 @@ export const ContactList = ({ contacts }) => {
 
   contacts.sort(sortByLastName);
   contacts.reduce((prev, it) => {
+    if (!prev || !it) return null;
     const prevLetter = prev ? getFirstLetter(prev.lastName) : null;
     const nextLetter = getFirstLetter(it.lastName);
 
     if (prevLetter !== nextLetter) blocks.push([]);
-
     blocks[blocks.length - 1].push(it);
     return it;
   }, contacts[0]);
@@ -23,13 +23,13 @@ export const ContactList = ({ contacts }) => {
     const letter = getFirstLetter(block[0].lastName);
 
     return (
-      <div className="wrap">
+      <div className="contact-list__wrapper">
         <p className="contact-list__letter">{letter}</p>
         <div className="contact-list__container">
           {block.map((contact) => (
             <div key={contact.id} className="contact__grid-item contact__item">
               <div className="contact__inner">
-                <Link exact to={`/contacts/${contact.id}`}>
+                <Link exact to={`/contact/${contact.id}`}>
                   <Avatar
                     classes={{
                       wrapper: 'contact__avatar-wrap',
