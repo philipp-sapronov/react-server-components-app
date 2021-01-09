@@ -27,7 +27,9 @@ $ docker-compose up
 ![react logo](/readme/react.png)
 ![nest logo](/readme/nest.png)
 
-<img src="/readme/nest.png" alt="alt text" width="200px" height="200px">
+<img src="/readme/screenshot-home.jpg" alt="alt text" width="200px" height="200px">
+<img src="/readme/screenshot-item.jpg" alt="alt text" width="200px" height="200px">
+<img src="/readme/screenshot-form.jpg" alt="alt text" width="200px" height="200px">
 
 
 * React + React Server Components
