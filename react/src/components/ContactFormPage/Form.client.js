@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import ImageLoader from '../Shared/ImageLoader.client';
 import { ContactField } from '../../constants/contactSchema';
 
-function Form(props) {
-  const [state, setState] = useState({});
+function Form({ data, categories = [] }) {
+  const [state, setState] = useState(data || {});
 
   const base64Convert = (file) => {
     reader.onload = (e) => {
       var binaryData = e.target.result;
       var base64Img = window.btoa(binaryData);
 
-      console.log(file, base64Img, '!!!');
       setState({ avatar: base64Img });
     };
 
@@ -95,8 +94,6 @@ function Form(props) {
   const onCancel = () => {
     // history.goBack();
   };
-
-  const { categories = [] } = props;
 
   return (
     <div className="add-contact__form-wrap">
@@ -191,7 +188,7 @@ function Form(props) {
                 {(categories || []).map((category) => {
                   return (
                     <option selected={category.id === state.category}>
-                      {category.text}
+                      {category.name}
                     </option>
                   );
                 })}

@@ -4,6 +4,7 @@ import Header from '../Header/Header.client';
 import { useContact } from '../../api/contacts.server';
 import { getFirstLetter, getFullName } from '../../helpers';
 import { format } from 'date-fns';
+import { useCategories } from '../../api/categories.server';
 
 const avatarStyles = {
   wrapper: 'contact-page__avatarWrap',
@@ -12,17 +13,20 @@ const avatarStyles = {
 };
 
 const ContactPage = ({ match }) => {
-  if (!match) {
-    console.log(match, 'NO MATCH OBJECT');
-    return null;
-  }
+  if (!match) return null;
 
   const contact = useContact(match.params.id);
   if (!contact) return null;
 
+  const categories = useCategories();
+
   // TODO:
   // server side redirect
   // it can be <Redirect /> component
+
+  const category = Array.isArray(categories)
+    ? categories.find((it) => it.contacts.includes(contact.id))
+    : null;
 
   return (
     <div>
@@ -71,7 +75,9 @@ const ContactPage = ({ match }) => {
         </div>
         <div className="contact-page__fieldWrap">
           <div className="contact-page__label">Category:</div>
-          <div className="contact-page__value">{contact.category}</div>
+          <div className="contact-page__value">
+            {category ? category.name : ''}
+          </div>
         </div>
       </div>
     </div>

@@ -3,12 +3,16 @@ import NavLink from '../../ServerRouter/navlink.client';
 import { useCategories } from '../../../api/categories.server';
 
 export default function Categories() {
-  const categories = useCategories();
+  const items = useCategories();
+
+  const all = { name: 'All Contacts', id: '' };
+
+  const categories = Array.isArray(items) ? [all].concat(items) : [all];
 
   return (
     <div className="sidebar-category-list__wrap">
       <div className="sidebar-category-list__header">Categories</div>
-      {(categories || [{ text: 'category' }]).map((category) => (
+      {categories.map((category) => (
         <NavLink
           exact
           activeClassName="active"

@@ -3,8 +3,10 @@ import { API_URL } from '../constants';
 
 export const useContacts = (categoryId) => {
   const id = categoryId ? '/' + categoryId : '';
-  const items = fetch(`${API_URL}/contacts${id}`).json();
-  return items || [];
+  const response = fetch(`${API_URL}/contacts${id}`).json();
+
+  if (response instanceof Error) return [];
+  return response || [];
 };
 
 export const useContact = (id) => {
@@ -16,7 +18,8 @@ export const useContact = (id) => {
 };
 
 export const useComingBirthdays = (count = 5) => {
-  const items = fetch(`${API_URL}/birthdays/${count}`).json();
+  const response = fetch(`${API_URL}/birthdays/${count}`).json();
 
-  return Array.isArray(items) ? items : [];
+  if (response instanceof Error) return null;
+  return response || [];
 };

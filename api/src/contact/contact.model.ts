@@ -11,7 +11,8 @@ export class ContactModel extends Model<Contact> {
     super();
     if (ContactModel.collection === null) {
       ContactModel.collection = {};
-      [...new Array(1000).keys()].map(FakeContact.of).forEach((item) => {
+
+      [...new Array(200).keys()].map(FakeContact.of).forEach((item) => {
         ContactModel.collection[item.id] = item;
       });
     }

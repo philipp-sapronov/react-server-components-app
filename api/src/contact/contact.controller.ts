@@ -1,6 +1,7 @@
 import { Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ContactService } from './contact.service';
 import { Contact } from './contact.interface';
+import { CategoryService } from '../category/category.service';
 
 type QueryPrams = Partial<Contact>;
 
@@ -14,7 +15,10 @@ type BirthdaysParams = {
 
 @Controller()
 export class ContactController {
-  constructor(private readonly contactService: ContactService) {}
+  constructor(
+    private readonly contactService: ContactService,
+    private readonly categoryService: CategoryService,
+  ) {}
 
   @Get('/contact/:id')
   getContact(@Param() params: Params) {
@@ -24,8 +28,14 @@ export class ContactController {
 
   @Get('/contacts')
   getContacts() {
-    console.log('contacts / get');
-    return this.contactService.findAll()?.slice(0, 100) || [];
+    return this.contactService.findAll() || [];
+  }
+
+  @Get('/contacts/:id')
+  getCategoryContacts(@Param() params: Params) {
+    const contacts = this.contactService.findAll();
+    const category = this.categoryService.findById(params.id);
+    return contacts.filter((it) => category?.contacts?.includes(it.id));
   }
 
   @Get('/contacts/search')

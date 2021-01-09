@@ -1,21 +1,15 @@
 import React from 'react';
 import Link from '../ServerRouter/link.client';
 import Avatar from '../Shared/Avatar.client';
-import { useContacts } from '../../api/contacts.server';
-import { getFirstLetter, getFullName } from '../../helpers';
+import { getFirstLetter, getFullName, sortByLastName } from '../../helpers';
 
-export const ContactList = () => {
-  const items = useContacts() || [];
-
-  items.sort((a, b) => {
-    if (a.lastName === b.lastName) return 0;
-    if (a.lastName > b.lastName) return 1;
-    else return -1;
-  });
+export const ContactList = ({ contacts }) => {
+  if (!Array.isArray(contacts)) return null;
 
   const blocks = [[]];
 
-  items.reduce((prev, it) => {
+  contacts.sort(sortByLastName);
+  contacts.reduce((prev, it) => {
     const prevLetter = prev ? getFirstLetter(prev.lastName) : null;
     const nextLetter = getFirstLetter(it.lastName);
 
@@ -23,7 +17,7 @@ export const ContactList = () => {
 
     blocks[blocks.length - 1].push(it);
     return it;
-  }, items[0]);
+  }, contacts[0]);
 
   return blocks.map((block) => {
     const letter = getFirstLetter(block[0].lastName);
