@@ -6,8 +6,8 @@
 
 ### Built With
 
-- ![react logo](/readme/react.png) React + React Server Components
-- ![nest logo](/readme/nest.png) Nest js
+![react logo](/readme/react.png) React + React Server Components
+![nest logo](/readme/nest.png) Nest js
 
 ## Screenshots
 
