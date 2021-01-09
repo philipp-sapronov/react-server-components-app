@@ -7,41 +7,35 @@ import Search from '../Search/Search.client';
 import Birthdays from '../Birthdays/Birthdays.client';
 import AddContactBtn from '../AddContactBtn/AddContactBtn.client';
 import ToggleSidebar from './../../ToggleSidebar/ToggleSidebar.client';
-import { WithScrollbar } from '../../../HOCs/WithScrollbar/WithScrollbar.client';
+import Scrollbar from '../../../HOCs/WithScrollbar/WithScrollbar.client';
 
-// import { ReactComponent as IconClose } from "../../../layout/ToggleSidebar/images/close.svg";
-
-const styles = {}; // __webpack__
 import classNames from 'classnames';
 
 function Sidebar(props) {
-  const { scrollThumb, scrollBar, scrollContainer, isSidebarOpen } = props;
+  // const { scrollThumb, scrollBar, scrollContainer, isSidebarOpen } = props;
+
   const wrapClassName = classNames({
-    [styles.wrap]: true,
-    [styles.isOpen]: isSidebarOpen,
+    sidebar__wrap: true,
+    'is-open': true,
   });
+
   const overlayClassName = classNames({
-    [styles.overlay]: true,
-    [styles.isOpen]: isSidebarOpen,
+    sidebar__overlay: true,
+    'is-open': true,
   });
+
   return (
     <Fragment>
       <div className={overlayClassName} onClick={props.toggleSidebar} />
       <aside className={wrapClassName}>
-        <div className="scroll-wrap" ref={scrollBar.ref}>
-          <div
-            className="scroll-bar"
-            ref={scrollThumb.ref}
-            onMouseDown={scrollThumb.onMouseDown}
-          />
-        </div>
-
-        <div
-          className={`sidebar__container`}
-          ref={scrollContainer.ref}
-          onScroll={scrollContainer.onScroll}>
-          <div className={styles.inner}>
-            <div className={styles.toggleWrap}>
+        <Scrollbar
+          classes={{
+            thumb: 'sidebar-scrollbar__thumb',
+            bar: 'sidebar-scrollbar__bar',
+            container: 'sidebar__container',
+          }}>
+          <div className="sidebar__inner">
+            <div className="sidebar__toggle-wrap">
               <ToggleSidebar icon={'/assets/close.svg'} />
             </div>
             <Logo />
@@ -51,10 +45,10 @@ function Sidebar(props) {
             <Birthdays />
             <AddContactBtn />
           </div>
-        </div>
+        </Scrollbar>
       </aside>
     </Fragment>
   );
 }
 
-export default WithScrollbar(Sidebar);
+export default Sidebar;

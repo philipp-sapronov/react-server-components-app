@@ -24,9 +24,9 @@ export default function Search() {
   };
 
   return (
-    <form onSubmit={submitHandler} name="search" className={styles.search}>
+    <form onSubmit={submitHandler} name="search" className="search">
       <input
-        className={styles.input}
+        className="search__input"
         type="text"
         placeholder="Search a contact"
         name="searchQuery"
@@ -34,7 +34,7 @@ export default function Search() {
         onChange={changeHandler}
         value={state.searchQuery}
       />
-      <button type="submit" className={styles.iconWrap}>
+      <button type="submit" className="search__icon-wrap">
         <img src="/assets/search.svg" alt="icon" />
       </button>
     </form>

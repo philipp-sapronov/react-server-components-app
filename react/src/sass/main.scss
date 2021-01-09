@@ -1,14 +1,26 @@
 @import 'reset';
-@import 'styles';
+
+// -- LAYOUT
+@import 'components/layout';
+@import 'components/logo';
+@import 'components/sidebar';
+@import 'components/sidebar-category';
+@import 'components/toggleSidebar';
+@import 'components/accountPanel';
+@import 'components/birthdays';
+@import 'components/sidebar-scrollbar';
+
+// --COMMON
+@import 'components/dots-menu';
 @import 'components/avatar';
+@import 'components/image-loader';
+
+// PAGES
+@import 'components/contact-page';
+@import 'components/contact-list';
+@import 'components/contact';
+@import 'components/header';
 @import 'components/category-page';
 @import 'components/contact-form-page';
-@import 'components/contact';
-@import 'components/contact-list';
-@import 'components/contact-page';
-@import 'components/header';
 @import 'components/form';
-@import 'components/scrollbar';
-@import 'components/image-loader';
-@import 'components/dots-menu';
-@import 'components/form';
+@import 'components/main-scrollbar';

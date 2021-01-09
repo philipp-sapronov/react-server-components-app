@@ -5,9 +5,10 @@ const styles = {};
 
 export default function Component(props) {
   return (
-    <div className={styles.wrap}>
-      <div className={styles.aside}>
-        <div className={styles.header}>Coming birthday</div>
+    <div className="birthday-list__wrap">
+      {/* ASIDE ??*/}
+      <div className="birthday-list__aside">
+        <div className="birthday-list__header">Coming birthday</div>
         {(props.entities || []).map((item) => (
           <Birthday item={item} key={item.ID} />
         ))}

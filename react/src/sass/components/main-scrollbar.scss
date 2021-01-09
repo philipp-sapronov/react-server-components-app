@@ -1,4 +1,4 @@
-.scrollbar__wrap {
+.main-scrollbar__bar {
   position: absolute;
   right: 0px;
   bottom: 0px;
@@ -28,7 +28,7 @@
   }
 }
 
-.scrollbar__bar {
+.main-scrollbar__thumb {
   position: absolute;
   top: 0;
   left: 0;

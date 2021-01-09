@@ -1,0 +1,39 @@
+.toggle-sidebar__wrap {
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+
+  @media only screen and (max-width: 992px) {
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    max-width: 50px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .toggle-sidebar__btn {
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    min-width: 22px;
+    max-width: 22px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  .toggle-sidebar__icon {
+    fill: #7b72ab;
+  }
+
+  .toggle-sidebar__burger-menu {
+    fill: #7b72ab;
+  }
+
+  .toggle-sidebar__close-menu {
+    fill: #7b72ab;
+    height: 20px;
+    width: 20px;
+  }
+}

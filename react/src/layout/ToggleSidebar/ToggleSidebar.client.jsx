@@ -1,12 +1,10 @@
 import React from 'react';
-// import styles from './toggleSidebar.module.sass';
-const styles = {};
 
-function ToggleSidebar({ icon }) {
+function ToggleSidebar({ icon, toggleSidebar }) {
   return (
-    <div className={styles.wrap}>
-      <button className={styles.btn} onClick={props.toggleSidebar}>
-        {!!icon && <img src={styles.icon} />}
+    <div className="toggle-sidebar__wrap">
+      <button className="toggle-sidebar__btn" onClick={toggleSidebar}>
+        {!!icon && <img src={icon} />}
       </button>
     </div>
   );

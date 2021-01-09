@@ -1,0 +1,61 @@
+.account-panel__wrapper {
+  margin: 15px 0;
+  min-width: 200px;
+}
+
+.account-panel__inner {
+  box-sizing: border-box;
+}
+
+.account-panel__photo-wrap {
+  float: left;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background: #10b1df;
+  overflow: hidden;
+}
+
+.account-panel__photo {
+  width: 50px;
+  height: 50px;
+}
+
+.account-panel__name-wrap {
+  margin-left: 60px;
+  padding-top: 10px;
+}
+
+.account-panel__name {
+  color: #eee;
+  font-size: 1.4rem;
+  overflow: hidden;
+  word-wrap: nowrap;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.account-panel__menu-wrap {
+  margin-left: auto;
+}
+
+.account-panel__menu {
+  color: #eee;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  text-align: right;
+
+  &:after {
+    content: '···';
+  }
+}
+
+.account-panel__logout {
+  display: inline-block;
+  color: #8992ca;
+  cursor: pointer;
+  margin-top: 6px;
+  font-size: 1.2rem;
+}
