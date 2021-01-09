@@ -12,12 +12,14 @@ export class CategoryController {
   @Get('/category:id')
   getCategory(@Param() params: Params) {
     const { id } = params;
-    return this.categoryService.findById(id);
+    const item = this.categoryService.findById(id);
+    return { data: item || null };
   }
 
   @Get('/categories')
   getCategories() {
-    return this.categoryService.findAll();
+    const items = this.categoryService.findAll();
+    return { data: items || null };
   }
 
   @Post('/category/add')

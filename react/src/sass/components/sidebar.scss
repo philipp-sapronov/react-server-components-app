@@ -96,12 +96,6 @@
 }
 
 .sidebar__container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: -100px;
   height: 100%;
   box-sizing: border-box;
-  overflow-y: scroll;
 }

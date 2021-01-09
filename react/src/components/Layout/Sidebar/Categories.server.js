@@ -17,7 +17,7 @@ export default function Categories() {
           exact
           activeClassName="active"
           className="main-menu__list-item menu-item"
-          to={`/categories/${category.id}`}>
+          to={category.id ? `/contacts/${category.id}` : '/'}>
           <div className="wrap">
             <div className="sidebar-category__item">
               <p className="sidebar-category__text">{category.name}</p>

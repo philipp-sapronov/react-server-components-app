@@ -5,21 +5,21 @@ export const useContacts = (categoryId) => {
   const id = categoryId ? '/' + categoryId : '';
   const response = fetch(`${API_URL}/contacts${id}`).json();
 
-  if (response instanceof Error) return [];
-  return response || [];
+  if (!response || response instanceof Error) return [];
+  return response.data || [];
 };
 
 export const useContact = (id) => {
   if (!id) return null;
   const response = fetch(`${API_URL}/contact/${id}`).json();
 
-  if (response instanceof Error) return null;
-  return response;
+  if (!response || response instanceof Error) return null;
+  return response.data;
 };
 
 export const useComingBirthdays = (count = 5) => {
   const response = fetch(`${API_URL}/birthdays/${count}`).json();
 
-  if (response instanceof Error) return null;
-  return response || [];
+  if (!response || response instanceof Error) return null;
+  return response.data || [];
 };

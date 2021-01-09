@@ -4,14 +4,14 @@ import { API_URL } from '../constants';
 export const useCategories = () => {
   const response = fetch(`${API_URL}/categories`).json();
 
-  if (response instanceof Error) return [];
-  return response || [];
+  if (!response || response instanceof Error) return [];
+  return response.data || [];
 };
 
 export const useCategory = (id) => {
   if (!id) return null;
   const response = fetch(`${API_URL}/category/${id}`).json();
 
-  if (response instanceof Error) return null;
-  return response;
+  if (!response || response instanceof Error) return null;
+  return response.data || null;
 };

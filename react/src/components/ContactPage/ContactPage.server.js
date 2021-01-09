@@ -5,6 +5,7 @@ import { useContact } from '../../api/contacts.server';
 import { getFirstLetter, getFullName } from '../../helpers';
 import { format } from 'date-fns';
 import { useCategories } from '../../api/categories.server';
+import Redirect from '../ServerRouter/redirect.client';
 
 const avatarStyles = {
   wrapper: 'contact-page__avatarWrap',
@@ -16,7 +17,7 @@ const ContactPage = ({ match }) => {
   if (!match) return null;
 
   const contact = useContact(match.params.id);
-  if (!contact) return null;
+  if (!contact) return <Redirect to={'/'} />;
 
   const categories = useCategories();
 

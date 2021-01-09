@@ -15,10 +15,10 @@ function App({ url }) {
     <Layout>
       <Router url={url}>
         <Switch>
-          <Route path={'/categories/:id'} exact={true}>
+          <Route path={'/contacts/:id'} exact={true}>
             <CategoryPage />
           </Route>
-          <Route path={'/contacts/:id'} exact={true}>
+          <Route path={'/contact/:id'} exact={true}>
             <ContactPage />
           </Route>
           <Route path={'/search'} exact={true}>
