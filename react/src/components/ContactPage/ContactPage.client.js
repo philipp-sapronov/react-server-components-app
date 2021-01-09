@@ -2,20 +2,24 @@ import React from 'react';
 import Avatar from '../Shared/Avatar.client';
 import Header from '../Header/Header.client';
 import { useContact } from '../../hooks/contacts';
-// import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router-dom';
 
 const avatarStyles = {
-  avatarWrap: 'contact-page__avatarWrap',
+  wrapper: 'contact-page__avatarWrap',
   avatar: 'contact-page__avatar',
   letters: 'contact-page__letters',
 };
 
-function ContactPage() {
-  // const { id } = useParams();
-  const id = '123';
-  // const contact = useContact(id);
+const ContactPage = () => {
+  const { id } = useParams();
+  const history = useHistory();
+  const contact = useContact(id);
 
-  return null;
+  if (!contact) {
+    console.log(id, contact);
+    history.push('/');
+    return null;
+  }
 
   return (
     <div>
@@ -67,6 +71,6 @@ function ContactPage() {
       </div>
     </div>
   );
-}
+};
 
 export default ContactPage;

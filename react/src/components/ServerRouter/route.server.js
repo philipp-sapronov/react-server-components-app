@@ -22,7 +22,7 @@ export const Route = (props) => {
   // Note: Works without client route
   // if (props.serverOnly)
 
-  return props.children || null;
+  // return props.children || null;
 
   //with client route
   return $(ClientRoute, props);
