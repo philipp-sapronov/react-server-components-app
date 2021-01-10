@@ -1,6 +1,16 @@
-import { useServerResponse } from '../../../server/useServerResponse.client';
 import { useLocation } from 'react-router-dom';
-import React from 'react';
+import { createFromFetch } from 'react-server-dom-webpack';
+import React, { useEffect, useState } from 'react';
+
+function useServerResponse(route) {
+  const [response, setResponse] = useState(null);
+
+  useEffect(() => {
+    setResponse(createFromFetch(fetch(route, { method: 'POST' })));
+  }, [route]);
+
+  return response;
+}
 
 const Slot = () => {
   const { pathname, search } = useLocation();

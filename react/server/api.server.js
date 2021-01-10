@@ -3,22 +3,7 @@ require('react-server-dom-webpack/node-register')();
 require('@babel/register')({
   ignore: [/[\\\/](build|server|node_modules)[\\\/]/],
   presets: [['react-app', { runtime: 'automatic' }]],
-  plugins: [
-    [
-      '@babel/plugin-transform-runtime',
-      {
-        helpers: false,
-        regenerator: true,
-        absoluteRuntime: false,
-        corejs: false,
-        useESModules: false,
-      },
-    ],
-    ['@babel/plugin-transform-classes', { spec: true }],
-    ['@babel/plugin-transform-proto-to-assign'],
-    ['@babel/plugin-transform-modules-commonjs'],
-    ['@babel/plugin-proposal-object-rest-spread'],
-  ],
+  plugins: [['@babel/plugin-transform-modules-commonjs']],
 });
 
 const express = require('express');

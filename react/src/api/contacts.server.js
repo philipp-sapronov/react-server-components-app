@@ -20,6 +20,6 @@ export const useContact = (id) => {
 export const useComingBirthdays = (count = 5) => {
   const response = fetch(`${API_URL}/birthdays/${count}`).json();
 
-  if (!response || response instanceof Error) return null;
+  if (!response || response instanceof Error) return [];
   return response.data || [];
 };
