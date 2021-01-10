@@ -6,7 +6,7 @@ export default function Avatar(props) {
   return (
     <div className={classes.wrapper || 'avatar__wrap'}>
       {src ? (
-        <img className="avatar" src={src} alt={'avatar'} />
+        <img loading="lazy" className="avatar" src={src} alt={'avatar'} />
       ) : (
         <div className={classes.letters}>{letter}</div>
       )}
